@@ -38,22 +38,16 @@ export default function ProjectCard({
           ))}
         </div>
         <div className="flex gap-4">
-          <a
-            href={demoLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:underline"
-          >
-            Live Demo
-          </a>
-          <a
-            href={githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-600 dark:text-blue-400 hover:underline"
-          >
-            GitHub
-          </a>
+            <div className="flex justify-center w-full">
+            <a
+              href={githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              GitHub
+            </a>
+            </div>
         </div>
       </div>
     </div>
