@@ -21,6 +21,7 @@ import ProjectCard from './components/ProjectCard';
 import Section from './components/Section';
 import SkillCard from './components/SkillCard';
 import ThemeToggle from './components/ThemeToggle';
+import Typewriter from './components/Typewriter';
 
 function App() {
   useEffect(() => {
@@ -74,7 +75,11 @@ function App() {
             className="w-32 h-32 rounded-full mx-auto mb-8 object-cover"
           />
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Priyanshu Kumar
+           <Typewriter 
+              text="Priyanshu Kumar" 
+              delay={150}
+              className="inline-block"
+            />
           </h1>
           <h2 className="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-8">
             Analytical storyteller
@@ -154,7 +159,7 @@ function App() {
             description="A financial modeling project combining Modern Portfolio Theory (MPT), integer programming, and Monte Carlo simulation to optimize stock investments and analyze rebalancing strategies."
             technologies={['Python', 'MPT optimization' , 'Monte Carlo simulation', 'Pandas' , 'NumPy', 'Matplotlib' , 'SciPy' , 'Statsmodels' , 'Pyomo']}
             githubLink="https://github.com/kumarpriyanshu09/stock-portfolio-optimization"
-            image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800"
+            image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOhvbY61xJhVqWkaTM8n7d2dnpBf8poOIAM7jwNRRist1OVRv7Od8mwty91K0537BSkCv04osqnyqLT5ZnGxliuBVbgBbq87-wuF_FVG7guUBrrvZumLgOJ4bIJ50f8oSwoQJGbIa2BKg/s800/Portfolio-Dashboard-Screenshot.png"
           />
           <ProjectCard
             title="Forecasting Blood Glucose Level"
@@ -162,7 +167,7 @@ function App() {
             technologies={['SAS Studio', 'Time Series Analysis', 'ARIMA', 'SARIMA']}
             demoLink="https://example.com"
             githubLink="https://github.com/kumarpriyanshu09/Forecasting-Blood-Glucose-Level"
-            image="https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=800"
+            image="https://img.freepik.com/premium-vector/glucose-level-measurement_692379-388.jpg?w=2000"
           />
           <ProjectCard
             title="Credit Delinquency Prediction"
@@ -170,7 +175,7 @@ function App() {
             technologies={['Python', 'pandas', 'numpy', 'matplotlib' , 'seaborn' , 'scikit-learn' , 'statsmodels' , 'imbalanced-learn' , 'xgboost']}
             demoLink="https://example.com"
             githubLink="https://github.com/kumarpriyanshu09/credit-delinquency-prediction"
-            image="https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=800"
+            image="https://cdn.dribbble.com/userupload/13724224/file/original-87985d803ddf448b1c32e13d88dc7da2.png?resize=2048x1536&vertical=center"
           />
           <ProjectCard
             title="Social Media Data Analysis"
@@ -178,7 +183,7 @@ function App() {
             technologies={['SQL', 'ETL', 'MariaDB', 'ER Diagrams']}
             demoLink="https://example.com"
             githubLink="https://github.com/kumarpriyanshu09/social-media-data-analysis"
-            image="https://images.unsplash.com/photo-1543286386-713bdd548da4?auto=format&fit=crop&q=80&w=800"
+            image="https://cdn.dribbble.com/userupload/4177239/file/original-bb36e1ed1fff9e706d070e822af59b2e.png?resize=2048x1536&vertical=center"
           />
           <ProjectCard
             title="Yelp Restaurant Review Analysis"
@@ -186,7 +191,7 @@ function App() {
             technologies={['Python' , 'Pandas' , 'NLTK' , 'TextBlob' , 'Scikit-learn' , 'Matplotlib' , 'Seaborn' , 'statsmodel']}
             demoLink="https://example.com"
             githubLink="https://github.com"
-            image="https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&q=80&w=800"
+            image="https://s3.crackedcdn.com/phpimages/quickfix/7/9/5/157795.jpg?v=1"
           />
         </div>
       </Section>
@@ -437,7 +442,7 @@ function App() {
           rel="noopener noreferrer"
           className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
         >
-          <LinkedinIcon className="w-6 h-6" />
+          <LinkedinIcon className="w-12 h-12" />
         </a>
         <a
           href="https://github.com/kumarpriyanshu09"
@@ -445,13 +450,13 @@ function App() {
           rel="noopener noreferrer"
           className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
         >
-          <Github className="w-6 h-6" />
+          <Github className="w-12 h-12" />
         </a>
         <a
           href="mailto:kumarpriyanshu09@hmail.com"
           className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
         >
-          <Mail className="w-6 h-6" />
+          <Mail className="w-12 h-12" />
         </a>
           </div>
         </div>
