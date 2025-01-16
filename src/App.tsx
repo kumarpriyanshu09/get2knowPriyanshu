@@ -85,7 +85,7 @@ function App() {
             Analytical storyteller
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">  
-          Transforming data into actionable insights and building intelligent solutions  
+          Crafting Actionable Intelligence from Complex Data  
           </p>
           <div className="flex justify-center space-x-4">
             <a
