@@ -31,23 +31,23 @@ export default function ProjectCard({
           {technologies.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm"
+              className="px-2.5 py-1.5 bg-black text-white rounded-md text-sm whitespace-nowrap"
             >
               {tech}
             </span>
           ))}
         </div>
         <div className="flex gap-4">
-            <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full">
             <a
               href={githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:underline"
+              className="text-black dark:text-white font-bold hover:underline"
             >
               GitHub
             </a>
-            </div>
+          </div>
         </div>
       </div>
     </div>

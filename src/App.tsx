@@ -1,10 +1,15 @@
-// At the top of App.tsx, add:
 import profilePhoto from './assets/Priyanshu.jpg'  // replace yourphoto.jpg with your actual filename
-import Priyanshu_Kumar_Resume from './assets/Priyanshu_Kumar_Resume.pdf'  // 
+import Priyanshu_Kumar_Resume from './assets/Priyanshu_Kumar_Resume.pdf'  
 import ExperienceCard from './components/ExperienceCard'
 import EducationCard from './components/EducationCard'
 import TextRotator from './components/TextRotator'
 import Navbar from './components/Navbar'
+import memoji from './assets/memoji.png'  // Add this import at the top
+import bloodGlucose from './assets/blood glucose.jpg'  // Add blood glucose image import
+import stock from './assets/stock.jpg'  // Add stock image import
+import yelp from './assets/yelp.jpg'  // Add yelp image import
+import social from './assets/social.jpg'  // Add social media image import
+import credit from './assets/credit.jpg'  // Add credit image import
 
 import {
   BarChart3,
@@ -54,11 +59,15 @@ function App() {
       {/* Hero Section */}
       <Section id="hero" className="pt-32 md:pt-40 text-center">
         <div className="max-w-3xl mx-auto">
-          <img
-            src={profilePhoto}
-            alt="Profile"
-            className="w-32 h-32 rounded-full mx-auto mb-8 object-cover"
-          />
+          <div className="relative w-32 h-32 mx-auto mb-8">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-200 to-white shadow-[0_0_15px_rgba(0,0,0,0.2)] ring-2 ring-gray-100"></div>
+            <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-gray-100 to-white shadow-inner"></div>
+            <img
+              src={memoji}
+              alt="Profile"
+              className="relative w-full h-full rounded-full object-cover z-10"
+            />
+          </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ fontFamily: 'Enter, sans-serif' }}>
             <Typewriter 
               text="Priyanshu Kumar" 
@@ -153,7 +162,7 @@ function App() {
             description="A financial modeling project combining Modern Portfolio Theory (MPT), integer programming, and Monte Carlo simulation to optimize stock investments and analyze rebalancing strategies."
             technologies={['Python', 'MPT optimization' , 'Monte Carlo simulation', 'Pandas' , 'NumPy', 'Matplotlib' , 'SciPy' , 'Statsmodels' , 'Pyomo']}
             githubLink="https://github.com/kumarpriyanshu09/stock-portfolio-optimization"
-            image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOhvbY61xJhVqWkaTM8n7d2dnpBf8poOIAM7jwNRRist1OVRv7Od8mwty91K0537BSkCv04osqnyqLT5ZnGxliuBVbgBbq87-wuF_FVG7guUBrrvZumLgOJ4bIJ50f8oSwoQJGbIa2BKg/s800/Portfolio-Dashboard-Screenshot.png"
+            image={stock} // Changed to use stock image
           />
           <ProjectCard
             title="Forecasting Blood Glucose Level"
@@ -161,7 +170,7 @@ function App() {
             technologies={['SAS Studio', 'Time Series Analysis', 'ARIMA', 'SARIMA']}
             demoLink="https://example.com"
             githubLink="https://github.com/kumarpriyanshu09/Forecasting-Blood-Glucose-Level"
-            image="https://img.freepik.com/premium-vector/glucose-level-measurement_692379-388.jpg?w=2000"
+            image={bloodGlucose}
           />
           <ProjectCard
             title="Credit Delinquency Prediction"
@@ -169,7 +178,7 @@ function App() {
             technologies={['Python', 'pandas', 'numpy', 'matplotlib' , 'seaborn' , 'scikit-learn' , 'statsmodels' , 'imbalanced-learn' , 'xgboost']}
             demoLink="https://example.com"
             githubLink="https://github.com/kumarpriyanshu09/credit-delinquency-prediction"
-            image="https://cdn.dribbble.com/userupload/13724224/file/original-87985d803ddf448b1c32e13d88dc7da2.png?resize=2048x1536&vertical=center"
+            image={credit}
           />
           <ProjectCard
             title="Social Media Data Analysis"
@@ -177,7 +186,7 @@ function App() {
             technologies={['SQL', 'ETL', 'MariaDB', 'ER Diagrams']}
             demoLink="https://example.com"
             githubLink="https://github.com/kumarpriyanshu09/social-media-data-analysis"
-            image="https://cdn.dribbble.com/userupload/4177239/file/original-bb36e1ed1fff9e706d070e822af59b2e.png?resize=2048x1536&vertical=center"
+            image={social}
           />
           <ProjectCard
             title="Yelp Restaurant Review Analysis"
@@ -185,7 +194,7 @@ function App() {
             technologies={['Python' , 'Pandas' , 'NLTK' , 'TextBlob' , 'Scikit-learn' , 'Matplotlib' , 'Seaborn' , 'statsmodel']}
             demoLink="https://example.com"
             githubLink="https://github.com"
-            image="https://s3.crackedcdn.com/phpimages/quickfix/7/9/5/157795.jpg?v=1"
+            image={yelp}
           />
         </div>
       </Section>
@@ -323,44 +332,44 @@ function App() {
         Feel free to reach out to me through the following platforms:
           </p>
           <div className="flex justify-center gap-8 mt-12">
-        <a
-          href="https://www.linkedin.com/in/kumarpriyanshu09/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-        >
-          <LinkedinIcon className="w-12 h-12" />
-        </a>
-        <a
-          href="https://github.com/kumarpriyanshu09"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-        >
-          <Github className="w-12 h-12" />
-        </a>
-        <a
-          href="mailto:kumarpriyanshu09@hmail.com"
-          className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-        >
-          <Mail className="w-12 h-12" />
-        </a>
+            <a
+              href="https://www.linkedin.com/in/kumarpriyanshu09/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
+            >
+              <LinkedinIcon className="w-12 h-12" />
+            </a>
+            <a
+              href="https://github.com/kumarpriyanshu09"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
+            >
+              <Github className="w-12 h-12" />
+            </a>
+            <a
+              href="mailto:kumarpriyanshu09@hmail.com"
+              className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white"
+            >
+              <Mail className="w-12 h-12" />
+            </a>
           </div>
         </div>
       
       </Section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 dark:bg-gray-950 text-white py-8">
+      <footer className="bg-black/100 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400">
+            <p className="text-gray-300">
               © {new Date().getFullYear()} Priyanshu Kumar. All rights reserved.
             </p>
             <div className="flex gap-8 mt-4 md:mt-0">
-              <a href="#about" className="hover:text-blue-400">About</a>
-              <a href="#projects" className="hover:text-blue-400">Projects</a>
-              <a href="#contact" className="hover:text-blue-400">Contact</a>
+              <a href="#about" className="hover:text-black hover:bg-white px-2.5 py-1.5 rounded-md transition-all duration-200">About</a>
+              <a href="#projects" className="hover:text-black hover:bg-white px-2.5 py-1.5 rounded-md transition-all duration-200">Projects</a>
+              <a href="#contact" className="hover:text-black hover:bg-white px-2.5 py-1.5 rounded-md transition-all duration-200">Contact</a>
             </div>
           </div>
         </div>
