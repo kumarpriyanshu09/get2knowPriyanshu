@@ -22,16 +22,18 @@ const TextRotator = ({ texts = [], interval = 3000 }) => {
   }, [texts, interval]);
 
   return (
-    <span 
-      className="inline-block font-bold text-orange-500 text-center"
-      style={{
-        transition: 'opacity 0.5s ease-in-out',
-        opacity: opacity,
-        minWidth: `${maxLength}ch`,
-      }}
-    >
-      {texts[currentIndex]}
-    </span>
+    <div className="inline-block bg-black px-4 py-2 rounded-md">
+      <span 
+        className="inline-block font-bold text-white text-center"
+        style={{
+          transition: 'opacity 0.5s ease-in-out',
+          opacity: opacity,
+          minWidth: `${maxLength}ch`,
+        }}
+      >
+        {texts[currentIndex]}
+      </span>
+    </div>
   );
 };
 

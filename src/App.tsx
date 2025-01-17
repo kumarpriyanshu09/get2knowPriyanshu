@@ -47,60 +47,60 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
       <ThemeToggle />
       <Navbar />
 
       {/* Hero Section */}
-      {/* Hero Section */}
-<Section id="hero" className="pt-32 md:pt-40 text-center">
-  <div className="max-w-3xl mx-auto">
-    <img
-      src={profilePhoto}
-      alt="Profile"
-      className="w-32 h-32 rounded-full mx-auto mb-8 object-cover"
-    />
-    <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ fontFamily: 'Enter, sans-serif' }}>
-      <Typewriter 
-        text="Priyanshu Kumar" 
-        delay={150}
-        className="inline-block"
-      />
-    </h1>
-    <h2 className="text-2xl md:text-3xl font-bold mb-8 min-h-[2em] flex flex-col items-center justify-center gap-1">
-      <span>Hey folks, I'm a</span>
-      <TextRotator 
-        texts={[
-          'Data Analyst 📈',
-          'Data Scientist 📊',
-          'Data Engineer 🛠️'
-        ]} 
-        interval={2000}
-      />
-    </h2>
-    <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">  
-      Crafting Actionable Intelligence from Complex Data  
-    </p>
-    <div className="flex justify-center space-x-4">
-      <a
-        href="#projects"
-        className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-      >
-        View My Work
-      </a>
-      <a
-        href={Priyanshu_Kumar_Resume}
-        download="Priyanshu Kumar Resume.pdf"
-        className="inline-block bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-900 transition-colors"
-      >
-        Resume
-      </a>
-    </div>
-  </div>
-</Section>
+      <Section id="hero" className="pt-32 md:pt-40 text-center">
+        <div className="max-w-3xl mx-auto">
+          <img
+            src={profilePhoto}
+            alt="Profile"
+            className="w-32 h-32 rounded-full mx-auto mb-8 object-cover"
+          />
+          <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ fontFamily: 'Enter, sans-serif' }}>
+            <Typewriter 
+              text="Priyanshu Kumar" 
+              delay={150}
+              className="inline-block"
+            />
+          </h1>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 min-h-[2em] flex flex-col items-center justify-center gap-1">
+            <span>Hey folks, I'm a</span>
+            <TextRotator 
+              texts={[
+                'Data Analyst 📈',
+                'Data Scientist 📊',
+                'Data Engineer 🛠️',
+                'Data Storyteller 📝',
+              ]} 
+              interval={2000}
+            />
+          </h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">  
+            Crafting Actionable Intelligence from Complex Data  
+          </p>
+          <div className="flex justify-center space-x-4">
+            <a
+              href="#projects"
+              className="inline-block bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-900 transition-colors"
+            >
+              View My Work
+            </a>
+            <a
+              href={Priyanshu_Kumar_Resume}
+              download="Priyanshu Kumar Resume.pdf"
+              className="inline-block bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-900 transition-colors"
+            >
+              Resume
+            </a>
+          </div>
+        </div>
+      </Section>
 
       {/* About Section */}
-      <Section id="about" className="bg-white dark:bg-gray-800">
+      <Section id="about" className="bg-gray-50 dark:bg-gray-800">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8">About Me</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-left space-y-4">
@@ -145,7 +145,7 @@ function App() {
       </Section>
 
       {/* Projects Section */}
-      <Section id="projects">
+      <Section id="projects" className="bg-white dark:bg-gray-900">
         <h2 className="text-3xl font-bold text-center mb-12">Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ProjectCard
@@ -191,7 +191,7 @@ function App() {
       </Section>
 
       {/* Skills Section */}
-      <Section id="skills" className="bg-white dark:bg-gray-800">
+      <Section id="skills" className="bg-gray-50 dark:bg-gray-800">
         <h2 className="text-3xl font-bold text-center mb-12">Skills & Expertise</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <SkillCard
@@ -229,201 +229,94 @@ function App() {
       </Section>
 
       {/* Experience Section */}
-      {/* <Section id="experience">
+      <Section id="experience" className="bg-white dark:bg-gray-900">
         <h2 className="text-3xl font-bold text-center mb-12">Experience</h2>
-        <div className="max-w-3xl mx-auto space-y-8">
-          <div className="relative pl-8 border-l-2 border-blue-600 dark:border-blue-400">
-        <div className="absolute w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full -left-[9px] top-0" />
-        <div className="mb-8">
-          <h3 className="text-xl font-bold mb-2">Gen AI Engineer</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-2">ANANDA • August 2024 - December 2024</p>
-          <ul 
-            style={{
-          textIndent: '-1em',
-          paddingLeft: '1em',
-            }}
-            className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 hanging-indent">
-          <li>Constructed RAG pipelines with Vicuna LLM, improving data extraction accuracy and chatbot clarity by 20%.</li>
-          <li>Enhanced document embedding by integrating ChromaDB with LLMs, reducing data retrieval time by 15%.</li>
-          <li>Optimized chatbot evaluations using BERT and ROUGE metrics, boosting semantic relevance of responses.</li>
-          <li>Led data-driven team analysis of crypto strategies, revealing actionable insights for risk mitigation and trend forecasting.</li>
-          <li>Collaborated with colleagues in LLM frameworks, fostering innovative data solutions and streamlining generative AI implementations.</li>
-          </ul>
+        <div className="max-w-3xl mx-auto space-y-6">
+          <ExperienceCard
+            company="ANANDA"
+            position="Gen AI Engineer"
+            duration="August 2024 - December 2024"
+            location="Storrs, CT"
+            description={[
+              "Constructed RAG pipelines with Vicuna LLM, improving data extraction accuracy and chatbot clarity by 20%.",
+              "Enhanced document embedding by integrating ChromaDB with LLMs, reducing data retrieval time by 15%.", 
+              "Optimized chatbot evaluations using BERT and ROUGE metrics, boosting semantic relevance of responses.",
+              "Led data-driven team analysis of crypto strategies, revealing actionable insights for risk mitigation and trend forecasting.",
+              "Collaborated with colleagues in LLM frameworks, fostering innovative data solutions and streamlining generative AI implementations."
+            ]}
+          />
+          
+          <ExperienceCard
+            company="REINO PREFAB PRIVATE LTD."
+            position="Data Analyst"
+            duration="January 2023 - July 2023"
+            location="Pune, India"
+            description={[
+              "Revamped SQL data collection system, enhancing data accuracy by 100% and optimizing analysis efficiency.",
+              "Applied R statistical techniques, driving strategic business decisions and optimizing operational efficiency.",
+              "Built Power BI dashboards to visualize key metrics, supporting data-driven decision-making and improving marketing strategies.",
+              "Refined data collection protocols, reducing entry errors by 15% and saving the team 10 hours weekly in data preprocessing.",
+              "Conducted stakeholder briefings on data insights, fostering informed decision-making and stakeholder alignment."
+            ]}
+          />
+          
+          <ExperienceCard
+            company="Inator"
+            position="Data Analyst Intern"
+            duration="August 2021 - November 2021"
+            location="Pune, India"
+            description={[
+              "Implemented Python-based player ranking algorithm, elevating model precision by 70% for team performance insights.",
+              "Developed an interactive webpage using Flask and integrated K-means clustering, improving user engagement by 25%.",
+              "Streamlined SQL data processes, slashing data errors by 60% and bolstering overall reliability for downstream analytical tasks."
+            ]}
+          />
         </div>
-          </div>
-          <div className="relative pl-8 border-l-2 border-blue-600 dark:border-blue-400">
-        <div className="absolute w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full -left-[9px] top-0" />
-        <div className="mb-8">
-          <h3 className="text-xl font-bold mb-2">Data Analyst</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-2">REINO PREFAB PRIVATE LTD.  • January 2023 - July 2023</p>
-            <ul 
-          style={{
-            textIndent: '-1em',
-            paddingLeft: '1em',
-          }}
-          className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 hanging-indent">
-          <li>Revamped SQL data collection system, enhancing data accuracy by 100% and optimizing analysis efficiency.</li>
-          <li>Applied R statistical techniques, driving strategic business decisions and optimizing operational efficiency.</li>
-          <li>Built Power BI dashboards to visualize key metrics, supporting data-driven decision-making and improving marketing strategies.</li>
-          <li>Refined data collection protocols, reducing entry errors by 15% and saving the team 10 hours weekly in data preprocessing.</li>
-          <li>Conducted stakeholder briefings on data insights, fostering informed decision-making and stakeholder alignment.</li>
-            </ul>
-        </div>
-          </div>
-          <div className="relative pl-8 border-l-2 border-blue-600 dark:border-blue-400">
-          <div className="absolute w-4 h-4 bg-blue-600 dark:bg-blue-400 rounded-full -left-[9px] top-0" />
-          <div className="mb-8">
-        <h3 className="text-xl font-bold mb-2">Data Analyst Intern </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-2">Inator • August 2021 - November 2021</p>
-        <ul 
-          style={{
-            textIndent: '-1em',
-            paddingLeft: '1em',
-          }}
-          className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2 hanging-indent">
-          <li>Implemented Python-based player ranking algorithm, elevating model precision by 70% for team performance insights.</li>
-          <li>Developed an interactive webpage using Flask and integrated K-means clustering, improving user engagement by 25%.</li>
-          <li>Streamlined SQL data processes, slashing data errors by 60% and bolstering overall reliability for downstream analytical tasks.</li>
-          </ul>
-        </div>
-          </div>
-        </div>
-        </Section> */}
-
-      {/* Experience Section */}
-<Section id="experience">
-  <h2 className="text-3xl font-bold text-center mb-12">Experience</h2>
-  <div className="max-w-3xl mx-auto space-y-6">
-    <ExperienceCard
-      company="ANANDA"
-      position="Gen AI Engineer"
-      duration="August 2024 - December 2024"
-      location="Storrs, CT"
-      description={[
-        "Constructed RAG pipelines with Vicuna LLM, improving data extraction accuracy and chatbot clarity by 20%.",
-        "Enhanced document embedding by integrating ChromaDB with LLMs, reducing data retrieval time by 15%.",
-        "Optimized chatbot evaluations using BERT and ROUGE metrics, boosting semantic relevance of responses.",
-        "Led data-driven team analysis of crypto strategies, revealing actionable insights for risk mitigation and trend forecasting.",
-        "Collaborated with colleagues in LLM frameworks, fostering innovative data solutions and streamlining generative AI implementations."
-      ]}
-    />
-    
-    <ExperienceCard
-      company="REINO PREFAB PRIVATE LTD."
-      position="Data Analyst"
-      duration="January 2023 - July 2023"
-      location="Pune, India"
-      description={[
-        "Revamped SQL data collection system, enhancing data accuracy by 100% and optimizing analysis efficiency.",
-        "Applied R statistical techniques, driving strategic business decisions and optimizing operational efficiency.",
-        "Built Power BI dashboards to visualize key metrics, supporting data-driven decision-making and improving marketing strategies.",
-        "Refined data collection protocols, reducing entry errors by 15% and saving the team 10 hours weekly in data preprocessing.",
-        "Conducted stakeholder briefings on data insights, fostering informed decision-making and stakeholder alignment."
-      ]}
-    />
-    
-    <ExperienceCard
-      company="Inator"
-      position="Data Analyst Intern"
-      duration="August 2021 - November 2021"
-      location="Pune, India"
-      description={[
-        "Implemented Python-based player ranking algorithm, elevating model precision by 70% for team performance insights.",
-        "Developed an interactive webpage using Flask and integrated K-means clustering, improving user engagement by 25%.",
-        "Streamlined SQL data processes, slashing data errors by 60% and bolstering overall reliability for downstream analytical tasks."
-      ]}
-    />
-  </div>
-</Section>
-
-{/* Education Section */}
-<Section id="education" className="bg-gray-50 dark:bg-gray-900">
-  <h2 className="text-3xl font-bold text-center mb-12">Education</h2>
-  <div className="max-w-3xl mx-auto space-y-6">
-    <EducationCard
-      institution="University of Connecticut"
-      degree="M.S in Business Analytics and Project Management"
-      duration="August 2023 - May 2025"
-      location="Storrs, CT"
-      gpa="3.76/4.0"
-      courses={[
-        "Data Mining and Business Intelligence",
-        "Predictive Modeling",
-        "Project Risk and Cost Management",
-        "Advanced Business Analytics",
-        "Statistics Business Analytics",
-        "Business Decision Modeling",
-        "Data Science using Python",
-        "Big Data Analytics with Cloud",
-        "Generative AI in Business",
-        "Visual Analytics"
-      ]}
-    />
-    
-    <EducationCard
-      institution="Maharashtra Institute of Technology"
-      degree="Bachelor's in Electrical Engineering"
-      duration="August 2018 - May 2022"
-      location="Pune, India"
-      gpa="3.29/4.0"
-      courses={[
-        "Data Analytics with Python",
-        "Machine Learning",
-        "Project Management",
-        "Optimization Techniques",
-        "Maths for Artificial Intelligence"
-      ]}
-    />
-  </div>
-</Section>
+      </Section>
 
       {/* Education Section */}
-      {/* <Section id="education" className="bg-gray-50 dark:bg-gray-900">
+      <Section id="education" className="bg-gray-50 dark:bg-gray-800">
         <h2 className="text-3xl font-bold text-center mb-12">Education</h2>
-        <div className="max-w-3xl mx-auto space-y-8">
-          <div className="relative pl-8 border-l-2 border-green-600 dark:border-green-400">
-        <div className="absolute w-4 h-4 bg-green-600 dark:bg-green-400 rounded-full -left-[9px] top-0" />
-        <div className="mb-8">
-          <h3 className="text-xl font-bold mb-2">University of Connecticut</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-2">M.S in Business Analytics and Project Management • August 2023 - May 2025</p>
-          <p className="text-gray-600 dark:text-gray-300 mb-2">GPA: 3.76/4.0</p>
-          <h4 className="font-bold mb-2">Relevant Courses:</h4>
-          <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-            <li>Data Mining and Business Intelligence</li>
-            <li>Predictive Modeling</li>
-            <li>Project Risk and Cost Management</li>
-            <li>Advanced Business Analytics</li>
-            <li>Statistics Business Analytics</li>
-            <li>Business Decision Modeling</li>
-            <li>Data Science using Python</li>
-            <li>Big Data Analytics with Cloud</li>
-            <li>Generative AI in Business</li>
-            <li>Visual Analytics</li>
-          </ul>
+        <div className="max-w-3xl mx-auto space-y-6">
+          <EducationCard
+            institution="University of Connecticut"
+            degree="M.S in Business Analytics and Project Management"
+            duration="August 2023 - May 2025"
+            location="Storrs, CT"
+            gpa="3.76/4.0"
+            courses={[
+              "Data Mining and Business Intelligence",
+              "Predictive Modeling",
+              "Project Risk and Cost Management",
+              "Advanced Business Analytics",
+              "Statistics Business Analytics",
+              "Business Decision Modeling",
+              "Data Science using Python",
+              "Big Data Analytics with Cloud",
+              "Generative AI in Business",
+              "Visual Analytics"
+            ]}
+          />
+          
+          <EducationCard
+            institution="Maharashtra Institute of Technology"
+            degree="Bachelor's in Electrical Engineering"
+            duration="August 2018 - May 2022"
+            location="Pune, India"
+            gpa="3.29/4.0"
+            courses={[
+              "Data Analytics with Python",
+              "Machine Learning",
+              "Project Management",
+              "Optimization Techniques",
+              "Maths for Artificial Intelligence"
+            ]}
+          />
         </div>
-          </div>
-          <div className="relative pl-8 border-l-2 border-green-600 dark:border-green-400">
-        <div className="absolute w-4 h-4 bg-green-600 dark:bg-green-400 rounded-full -left-[9px] top-0" />
-        <div className="mb-8">
-          <h3 className="text-xl font-bold mb-2">Maharashtra Institute of Technology</h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-2">Bachelor’s in Electrical Engineering • August 2018 - May 2022</p>
-          <p className="text-gray-600 dark:text-gray-300 mb-2">GPA: 3.29/4.0</p>
-          <h4 className="font-bold mb-2">Relevant Courses:</h4>
-          <ul className="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-            <li>Data Analytics with Python</li>
-            <li>Machine Learning</li>
-            <li>Project Management</li>
-            <li>Optimization Techniques</li>
-            <li>Maths for Artificial Intelligence</li>
-          </ul>
-        </div>
-          </div>
-        </div>
-      </Section> */}
-      
+      </Section>
 
       {/* Contact Section */}
-      <Section id="contact" className="bg-white dark:bg-gray-800">
+      <Section id="contact" className="bg-white dark:bg-gray-900">
         <h2 className="text-3xl font-bold text-center mb-12">Get in Touch</h2>
         <div className="max-w-xl mx-auto text-center">
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
