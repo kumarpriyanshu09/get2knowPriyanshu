@@ -3,6 +3,8 @@ import profilePhoto from './assets/Priyanshu.jpg'  // replace yourphoto.jpg with
 import Priyanshu_Kumar_Resume from './assets/Priyanshu_Kumar_Resume.pdf'  // 
 import ExperienceCard from './components/ExperienceCard'
 import EducationCard from './components/EducationCard'
+import TextRotator from './components/TextRotator'
+import Navbar from './components/Navbar'
 
 import {
   BarChart3,
@@ -47,63 +49,55 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
       <ThemeToggle />
-      
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <a href="#hero" className="font-bold text-xl">
-              Priyanshu Kumar
-            </a>
-            <div className="hidden md:flex space-x-8">
-              <a href="#about" className="hover:text-blue-600 dark:hover:text-blue-400">About</a>
-              <a href="#projects" className="hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
-              <a href="#skills" className="hover:text-blue-600 dark:hover:text-blue-400">Skills</a>
-              <a href="#experience" className="hover:text-blue-600 dark:hover:text-blue-400">Experience</a>
-              <a href="#contact" className="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
-      <Section id="hero" className="pt-32 md:pt-40 text-center">
-        <div className="max-w-3xl mx-auto">
-          <img
-            src={profilePhoto}
-            alt="Profile"
-            className="w-32 h-32 rounded-full mx-auto mb-8 object-cover"
-          />
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">
-           <Typewriter 
-              text="Priyanshu Kumar" 
-              delay={150}
-              className="inline-block"
-            />
-          </h1>
-          <h2 className="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-8">
-            Analytical storyteller
-          </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">  
-          Crafting Actionable Intelligence from Complex Data  
-          </p>
-          <div className="flex justify-center space-x-4">
-            <a
-              href="#projects"
-              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              View My Work
-            </a>
-            <a
-              href={Priyanshu_Kumar_Resume}
-              download="Priyanshu_Kumar_Resume.pdf"
-              className="inline-block bg-gray-600 text-white px-8 py-3 rounded-lg hover:bg-gray-700 transition-colors"
-            >
-              Resume
-            </a>
-          </div>
-        </div>
-      </Section>
+      {/* Hero Section */}
+<Section id="hero" className="pt-32 md:pt-40 text-center">
+  <div className="max-w-3xl mx-auto">
+    <img
+      src={profilePhoto}
+      alt="Profile"
+      className="w-32 h-32 rounded-full mx-auto mb-8 object-cover"
+    />
+    <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ fontFamily: 'Enter, sans-serif' }}>
+      <Typewriter 
+        text="Priyanshu Kumar" 
+        delay={150}
+        className="inline-block"
+      />
+    </h1>
+    <h2 className="text-2xl md:text-3xl font-bold mb-8 min-h-[2em] flex flex-col items-center justify-center gap-1">
+      <span>Hey folks, I'm a</span>
+      <TextRotator 
+        texts={[
+          'Data Analyst 📈',
+          'Data Scientist 📊',
+          'Data Engineer 🛠️'
+        ]} 
+        interval={2000}
+      />
+    </h2>
+    <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">  
+      Crafting Actionable Intelligence from Complex Data  
+    </p>
+    <div className="flex justify-center space-x-4">
+      <a
+        href="#projects"
+        className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+      >
+        View My Work
+      </a>
+      <a
+        href={Priyanshu_Kumar_Resume}
+        download="Priyanshu Kumar Resume.pdf"
+        className="inline-block bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-900 transition-colors"
+      >
+        Resume
+      </a>
+    </div>
+  </div>
+</Section>
 
       {/* About Section */}
       <Section id="about" className="bg-white dark:bg-gray-800">
