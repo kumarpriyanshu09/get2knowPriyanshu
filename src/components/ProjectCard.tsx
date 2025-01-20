@@ -31,7 +31,7 @@ export default function ProjectCard({
           {technologies.map((tech) => (
             <span
               key={tech}
-              className="px-2.5 py-1.5 bg-black text-white rounded-md text-sm whitespace-nowrap"
+              className="px-2.5 py-1.5 bg-black dark:bg-gray-700 text-white rounded-md text-sm whitespace-nowrap"
             >
               {tech}
             </span>
@@ -43,7 +43,7 @@ export default function ProjectCard({
               href={githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black dark:text-white font-bold hover:underline"
+              className="text-black dark:text-white hover:text-gray-600 dark:hover:text-gray-300 font-bold transition-colors"
             >
               GitHub
             </a>

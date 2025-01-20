@@ -23,7 +23,6 @@ export default function SkillCard({ category, skills }: SkillCardProps) {
                 <skill.icon className="w-5 h-5" />
                 <span className="font-medium">{skill.name}</span>
               </div>
-              <span className="text-sm">{skill.level}%</span>
             </div>
             <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
               <div

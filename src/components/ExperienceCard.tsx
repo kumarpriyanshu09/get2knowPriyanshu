@@ -6,7 +6,7 @@ interface ExperienceCardProps {
   position: string;
   duration: string;
   location: string;
-  description?: string[]; // Made description optional
+  description?: string[];
 }
 
 export default function ExperienceCard({
@@ -14,10 +14,9 @@ export default function ExperienceCard({
   position,
   duration,
   location,
-  description = [] // Added default empty array
+  description = []
 }: ExperienceCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 p-6">
@@ -59,7 +58,7 @@ export default function ExperienceCard({
           {description.map((item, index) => (
             <p
               key={index}
-              className="text-gray-700 dark:text-gray-300 pl-6 py-2 bg-gray-50 dark:bg-gray-700/50 rounded-md"
+              className="text-gray-700 dark:text-gray-300 pl-6 py-2 bg-gray-50/50 dark:bg-gray-700/50 rounded-md"
               style={{
                 textIndent: '-0.8rem',
                 paddingLeft: '2rem'
