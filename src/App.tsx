@@ -95,9 +95,10 @@ function App() {
         <span>Hey folks, I'm a</span>
         <TextRotator 
           texts={[
-            'Data Analyst 📈',
-            'Data Scientist 📊',
-            'Data Engineer 🛠️'
+        'Data Analyst 📈',
+        'Data Scientist 📊',
+        'Data Engineer 🛠️',
+        'Data Storyteller 📚'
           ]} 
           interval={2000}
         />
@@ -124,15 +125,15 @@ function App() {
   );
 
   const aboutContent = (
-    <div className="max-w-3xl mx-auto px-4 py-20 h-full overflow-y-auto">
+    <div className="max-w-3xl mx-auto px-4 py-20 h-full overflow-y-auto text-center">
       <h2 className="text-3xl font-bold mb-8">About Me</h2>
-      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-left space-y-4">
-        My data journey began during the COVID lockdown, sparked by curiosity about how data shapes business decisions. I immersed myself in analytics, constantly asking, "What's the purpose? Who benefits? What's the impact?" This guided my learning – from Python, SQL, and R to AWS Cloud and Power BI. I'm driven by a philosophy best captured by Benjamin Franklin: "Tell me and I forget, teach me and I may remember, involve me and I will learn."
+      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4">
+        My data journey began during the COVID lockdown, sparked by curiosity about how data shapes business decisions. I immersed myself in analytics, constantly asking, "What's the purpose? Who benefits? What's the impact?" This guided my learning – from Python, SQL, and R to AWS Cloud and Power BI. I'm driven by a philosophy best captured by Benjamin Franklin: <i>"Tell me and I forget, teach me and I may remember, involve me and I will learn."</i>
       </p>
-      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-left space-y-4">
+      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4">
         I connect the dots between the end goal, the audience, and potential breakthroughs. Guided by curiosity, integrity, and innovation, I adapt to market trends and evolving technologies. My goal is to help people make better decisions through data-driven insights.
       </p>
-      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-left space-y-4">
+      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4">
         I believe my background in bridging data science and strategic problem-solving offers a unique perspective. Working on diverse projects, from crypto analytics to sports data, has taught me the importance of adaptability and constant learning.  I'm eager to learn, share, and grow together. Let's connect and make an impact!
       </p>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
@@ -187,9 +188,9 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white dark:bg-gray-900">
             <div className="max-w-3xl mx-auto px-4 py-20">
-              <h2 className="text-3xl font-bold mb-12">The Story So Far</h2>
+              <h2 className="text-3xl font-bold mb-12 text-center">The Story So Far</h2>
               
-              <div className="space-y-12 text-lg text-gray-600 dark:text-gray-300">
+              <div className="space-y-12 text-lg text-gray-600 dark:text-gray-300 text-center">
                 <div>
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
                     The Indomitable Spirit of Reason in Data
