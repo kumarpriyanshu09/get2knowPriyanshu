@@ -1,4 +1,4 @@
-import profilePhoto from './assets/Priyanshu.jpg'  // replace yourphoto.jpg with your actual filename
+import profilePhoto from './assets/IMG_8636.JPG'  // Update this import
 import Priyanshu_Kumar_Resume from './assets/Priyanshu_Kumar_Resume.pdf'  
 import ExperienceCard from './components/ExperienceCard'
 import EducationCard from './components/EducationCard'
@@ -12,6 +12,7 @@ import social from './assets/social.jpg'
 import credit from './assets/credit.jpg'
 import memoji from './assets/memoji.png'  // Make sure this import exists
 import ScrollingSections from './components/ScrollingSections'
+import jiraCertificate from './assets/Jira Fundamentals Badge.jpg' // adjust the extension if different
 
 import {
   BarChart3,
@@ -82,7 +83,7 @@ function App() {
         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-gray-200 to-white shadow-[0_0_15px_rgba(0,0,0,0.2)] ring-2 ring-gray-100"></div>
         <div className="absolute inset-[3px] rounded-full bg-gradient-to-br from-gray-100 to-white shadow-inner"></div>
         <img
-          src={memoji}
+          src={profilePhoto}
           alt="Profile"
           className="relative w-full h-full rounded-full object-cover z-10"
         />
@@ -460,6 +461,25 @@ function App() {
                   data-share-badge-host="https://www.credly.com"
                   className="min-h-[300px]"
                 ></div>
+
+                {/* Jira Fundamentals Certificate */}
+                <div className="flex flex-col items-center min-h-[300px]">
+                  <a 
+                    href="https://university.atlassian.com/student/award/gkWT6UZtv51p5yKWTTt83WeW" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block hover:opacity-80 transition-opacity"
+                  >
+                    <img 
+                      src={jiraCertificate} 
+                      alt="Jira Fundamentals Assessment" 
+                      className="w-[150px] h-[270px] object-contain rounded-lg shadow-md"
+                    />
+                  </a>
+                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 text-center">
+                    Jira Fundamentals Assessment
+                  </p>
+                </div>
               </div>
             </div>
           </div>

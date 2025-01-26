@@ -52,19 +52,18 @@ export default function ExperienceCard({
       {description && description.length > 0 && (
         <div
           className={`mt-4 space-y-2 transition-all duration-300 overflow-hidden ${
-            isExpanded ? 'max-h-96' : 'max-h-0'
+            isExpanded ? 'max-h-[1000px]' : 'max-h-0'
           }`}
         >
           {description.map((item, index) => (
             <p
               key={index}
-              className="text-gray-700 dark:text-gray-300 pl-6 py-2 bg-gray-50/50 dark:bg-gray-700/50 rounded-md"
-              style={{
-                textIndent: '-0.8rem',
-                paddingLeft: '2rem'
-              }}
+              className="text-gray-700 dark:text-gray-300 pl-8 py-2 bg-gray-50/50 dark:bg-gray-700/50 rounded-md text-sm sm:text-base relative"
             >
-              • {item}
+              <span className="absolute left-3">•</span>
+              <span className="block pl-2 whitespace-pre-wrap">
+                {item}
+              </span>
             </p>
           ))}
         </div>

@@ -18,12 +18,11 @@ export default function SkillCard({ category, skills }: SkillCardProps) {
       <div className="space-y-4">
         {skills.map((skill) => (
           <div key={skill.name} className="space-y-2">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center">
               <div className="flex items-center gap-2">
                 <skill.icon className="w-5 h-5" />
                 <span className="font-medium">{skill.name}</span>
               </div>
-              <span className="text-sm">{skill.level}%</span>
             </div>
             <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
               <div

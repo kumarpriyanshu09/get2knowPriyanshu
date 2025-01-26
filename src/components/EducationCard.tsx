@@ -57,7 +57,7 @@ export default function EducationCard({
       {courses && courses.length > 0 && (
         <div
           className={`mt-4 transition-all duration-300 overflow-hidden ${
-            isExpanded ? 'max-h-96' : 'max-h-0'
+            isExpanded ? 'max-h-[1000px] sm:max-h-96' : 'max-h-0'
           }`}
         >
           <h4 className="font-bold mb-2 text-gray-900 dark:text-white">Relevant Courses:</h4>
@@ -65,10 +65,11 @@ export default function EducationCard({
             {courses.map((course) => (
               <p
                 key={course}
-                className="text-gray-700 dark:text-gray-300 pl-6 py-2 bg-gray-50/50 dark:bg-gray-700/50 rounded-md"
+                className="text-gray-700 dark:text-gray-300 pl-6 py-2 bg-gray-50/50 dark:bg-gray-700/50 rounded-md text-sm sm:text-base"
                 style={{
                   textIndent: '-0.8rem',
-                  paddingLeft: '2rem'
+                  paddingLeft: '2rem',
+                  wordBreak: 'break-word'
                 }}
               >
                 • {course}
