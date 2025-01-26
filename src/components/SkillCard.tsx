@@ -11,8 +11,8 @@ interface SkillCardProps {
 
 export default function SkillCard({ category, skills }: SkillCardProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 p-6">
-      <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+    <div className="bg-black/80 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden p-6 text-white">
+      <h3 className="text-xl font-bold mb-4">
         {category}
       </h3>
       <div className="space-y-4">
@@ -23,10 +23,11 @@ export default function SkillCard({ category, skills }: SkillCardProps) {
                 <skill.icon className="w-5 h-5" />
                 <span className="font-medium">{skill.name}</span>
               </div>
+              <span className="text-sm">{skill.level}%</span>
             </div>
-            <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+            <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
               <div
-                className="h-full bg-black"
+                className="h-full bg-white"
                 style={{ width: `${skill.level}%` }}
               />
             </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const navLinks = [
@@ -22,8 +23,8 @@ const Navbar = () => {
                 Priyanshu Kumar
               </a>
             </div>
-            <div className="flex-1 flex justify-end">
-              <div className="hidden md:flex space-x-6">
+            <div className="flex-1 flex justify-end items-center">
+              <div className="hidden md:flex items-center space-x-6">
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
@@ -33,6 +34,7 @@ const Navbar = () => {
                     {link.name}
                   </a>
                 ))}
+                <ThemeToggle />
               </div>
             </div>
           </div>

@@ -28,7 +28,6 @@ import {
 import { useEffect } from 'react';
 import ProjectCard from './components/ProjectCard';
 import SkillCard from './components/SkillCard';
-import ThemeToggle from './components/ThemeToggle';
 import Typewriter from './components/Typewriter';
 
 function App() {
@@ -125,15 +124,15 @@ function App() {
   );
 
   const aboutContent = (
-    <div className="max-w-3xl mx-auto px-4 py-20 h-full overflow-y-auto text-center">
+    <div className="max-w-3xl mx-auto px-4 py-20 h-full overflow-y-auto text-center" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
       <h2 className="text-3xl font-bold mb-8">About Me</h2>
-      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4">
+      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
         My data journey began during the COVID lockdown, sparked by curiosity about how data shapes business decisions. I immersed myself in analytics, constantly asking, "What's the purpose? Who benefits? What's the impact?" This guided my learning – from Python, SQL, and R to AWS Cloud and Power BI. I'm driven by a philosophy best captured by Benjamin Franklin: <i>"Tell me and I forget, teach me and I may remember, involve me and I will learn."</i>
       </p>
-      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4">
+      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
         I connect the dots between the end goal, the audience, and potential breakthroughs. Guided by curiosity, integrity, and innovation, I adapt to market trends and evolving technologies. My goal is to help people make better decisions through data-driven insights.
       </p>
-      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4">
+      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
         I believe my background in bridging data science and strategic problem-solving offers a unique perspective. Working on diverse projects, from crypto analytics to sports data, has taught me the importance of adaptability and constant learning.  I'm eager to learn, share, and grow together. Let's connect and make an impact!
       </p>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
@@ -164,7 +163,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
-      <ThemeToggle />
       <Navbar />
 
       {/* Hero Section */}
@@ -258,7 +256,7 @@ function App() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               <ProjectCard
                 title="Stock Portfolio Optimization and Rebalancing Analysis"
-                description="A financial modeling project combining Modern Portfolio Theory (MPT), integer programming, and Monte Carlo simulation to optimize stock investments and analyze rebalancing strategies."
+                description="Engineered a data-driven stock portfolio optimization framework using Python, Modern Portfolio Theory (MPT), and Monte Carlo simulations to balance risk-return tradeoffs. Leveraged integer programming (Pyomo) to allocate $100k across 9 S&P 500 stocks (3 per sector) under constraints (min. 2% per stock, sector diversification). Simulated 1,000 market scenarios to quantify risk and compared rebalancing strategies (Buy-and-Hold vs. Daily/Weekly/Monthly), revealing 'Buy and Hold' as optimal for volatility-adjusted returns. Built visualizations (efficient frontier, density plots) to validate MPT allocations and presented findings in a reproducible Jupyter notebook, adhering to academic standards for code quality and concision."
                 technologies={['Python', 'MPT optimization' , 'Monte Carlo simulation', 'Pandas' , 'NumPy', 'Matplotlib' , 'SciPy' , 'Statsmodels' , 'Pyomo']}
                 githubLink="https://github.com/kumarpriyanshu09/stock-portfolio-optimization"
                 image={stock}
@@ -291,6 +289,16 @@ function App() {
                 githubLink="https://github.com"
                 image={yelp}
               />
+            </div>
+            <div className="flex justify-center mt-12">
+              <a
+                href="https://github.com/kumarpriyanshu09"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-900 transition-colors"
+              >
+                See More Projects on GitHub
+              </a>
             </div>
           </div>
         </div>
