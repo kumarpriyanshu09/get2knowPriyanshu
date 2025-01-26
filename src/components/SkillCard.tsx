@@ -11,7 +11,7 @@ interface SkillCardProps {
 
 export default function SkillCard({ category, skills }: SkillCardProps) {
   return (
-    <div className="bg-black/80 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden p-6 text-white">
+    <div className="bg-black/90 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden p-6 text-white transition-transform hover:scale-105 duration-200">
       <h3 className="text-xl font-bold mb-4">
         {category}
       </h3>

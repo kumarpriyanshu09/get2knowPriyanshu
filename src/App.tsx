@@ -113,13 +113,6 @@ function App() {
         >
           View My Work
         </a>
-        <a
-          href={Priyanshu_Kumar_Resume}
-          download="Priyanshu Kumar Resume.pdf"
-          className="inline-block bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-900 transition-colors"
-        >
-          Resume
-        </a>
       </div>
     </div>
   );
@@ -453,14 +446,15 @@ function App() {
             <h2 className="text-3xl font-bold text-center mb-12">Certifications</h2>
             <div className="max-w-3xl mx-auto">
               <div className="flex justify-center flex-wrap gap-8 mb-16">
-                {/* Credly Badge */}
-                <div 
-                  data-iframe-width="150" 
-                  data-iframe-height="270" 
-                  data-share-badge-id="cddfea78-db52-4b67-b518-d9f98e7f0d25" 
-                  data-share-badge-host="https://www.credly.com"
-                  className="min-h-[300px]"
-                ></div>
+                {/* AWS Credly Badge */}
+                <div className="flex flex-col items-center min-h-[300px]">
+                  <div 
+                    data-iframe-width="200" 
+                    data-iframe-height="200" 
+                    data-share-badge-id="cddfea78-db52-4b67-b518-d9f98e7f0d25" 
+                    data-share-badge-host="https://www.credly.com"
+                  ></div>
+                </div>
 
                 {/* Jira Fundamentals Certificate */}
                 <div className="flex flex-col items-center min-h-[300px]">
@@ -473,7 +467,7 @@ function App() {
                     <img 
                       src={jiraCertificate} 
                       alt="Jira Fundamentals Assessment" 
-                      className="w-[150px] h-[270px] object-contain rounded-lg shadow-md"
+                      className="w-[200px] h-[200px] object-contain rounded-lg shadow-md"
                     />
                   </a>
                   <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 text-center">
