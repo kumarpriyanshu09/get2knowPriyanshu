@@ -121,13 +121,19 @@ function App() {
     <div className="max-w-3xl mx-auto px-4 py-20 h-full overflow-y-auto text-center" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
       <h2 className="text-3xl font-bold mb-8">About Me</h2>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
-        My data journey began during the COVID lockdown, sparked by curiosity about how data shapes business decisions. I immersed myself in analytics, constantly asking, "What's the purpose? Who benefits? What's the impact?" This guided my learning – from Python, SQL, and R to AWS Cloud and Power BI. I'm driven by a philosophy best captured by Benjamin Franklin: <i>"Tell me and I forget, teach me and I may remember, involve me and I will learn."</i>
+        Jay Baer once said, "We're surrounded by data but starved for insights." As a data professional, I use complex data to help you see what's coming and how to prepare for it.
       </p>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
-        I connect the dots between the end goal, the audience, and potential breakthroughs. Guided by curiosity, integrity, and innovation, I adapt to market trends and evolving technologies. My goal is to help people make better decisions through data-driven insights.
+        I've worked as a data analyst for over a year, helping teams deliver on goals. I've been using Python, SQL, power bi, and Excel for more than four years. I recently added machine learning and AWS Cloud to my skill set.
       </p>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
-        I believe my background in bridging data science and strategic problem-solving offers a unique perspective. Working on diverse projects, from crypto analytics to sports data, has taught me the importance of adaptability and constant learning.  I'm eager to learn, share, and grow together. Let's connect and make an impact!
+        Not too long ago, I worked on a capstone project where I built a chatbot app to educate users about crypto. It used RAG (retrieval-augmented generation) to explain a platform's offerings. I also led a team to optimize crypto trading strategies so users could reduce risk.
+      </p>
+      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
+        These days, I'm exploring generative AI and trying to make an impact in our changing world. Adaptability is one of my strengths. I've shown it by working across different industries, tackling a wide range of projects, and collaborating with diverse teams.
+      </p>
+      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
+        My curiosity drives me. I often ask "how?" and "why?" because that's how I keep learning and adapting. I thrive on brainstorming scenarios, working with others, and doing my best in every situation. I'm always eager to learn, share, and grow.
       </p>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
         <div>
