@@ -121,7 +121,7 @@ function App() {
     <div className="max-w-3xl mx-auto px-4 py-20 h-full overflow-y-auto text-center" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
       <h2 className="text-3xl font-bold mb-8">About Me</h2>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
-        Jay Baer once said, "We're surrounded by data but starved for insights." As a data professional, I use complex data to help you see what's coming and how to prepare for it.
+        Jay Baer once said, <b><i>"We're surrounded by data but starved for insights."</i></b> As a data professional, I use complex data to help you see what's coming and how to prepare for it.
       </p>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
         I've worked as a data analyst for over a year, helping teams deliver on goals. I've been using Python, SQL, Power BI, and Excel for more than four years. I recently added machine learning and AWS Cloud to my skill set.
