@@ -124,7 +124,7 @@ function App() {
         Jay Baer once said, "We're surrounded by data but starved for insights." As a data professional, I use complex data to help you see what's coming and how to prepare for it.
       </p>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
-        I've worked as a data analyst for over a year, helping teams deliver on goals. I've been using Python, SQL, power bi, and Excel for more than four years. I recently added machine learning and AWS Cloud to my skill set.
+        I've worked as a data analyst for over a year, helping teams deliver on goals. I've been using Python, SQL, Power BI, and Excel for more than four years. I recently added machine learning and AWS Cloud to my skill set.
       </p>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center space-y-4" style={{ fontFamily: 'Helvetica Neue, sans-serif' }}>
         Not too long ago, I worked on a capstone project where I built a chatbot app to educate users about crypto. It used RAG (retrieval-augmented generation) to explain a platform's offerings. I also led a team to optimize crypto trading strategies so users could reduce risk.
