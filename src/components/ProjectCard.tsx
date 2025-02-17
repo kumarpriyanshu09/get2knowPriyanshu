@@ -6,8 +6,9 @@ interface ProjectProps {
   description: string;
   technologies: string[];
   demoLink?: string;  // Made optional to fix the linter error
-  githubLink: string;
+  githubLink?: string;
   image: string;
+  viewDetailsButton?: React.ReactNode;
 }
 
 export default function ProjectCard({
@@ -16,6 +17,7 @@ export default function ProjectCard({
   technologies,
   githubLink,
   image,
+  viewDetailsButton,
 }: ProjectProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isOverflowing, setIsOverflowing] = useState(false);
@@ -37,7 +39,7 @@ export default function ProjectCard({
   }, [description]);
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 h-full">
       <img
         src={image}
         alt={title}
@@ -82,18 +84,21 @@ export default function ProjectCard({
             </span>
           ))}
         </div>
-        <div className="flex gap-4">
-          <div className="flex justify-center w-full">
-            <a
-              href={githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-900 dark:text-gray-100 underline hover:no-underline font-bold"
-            >
-              GitHub
-            </a>
+        {githubLink && (
+          <div className="flex gap-4">
+            <div className="flex justify-center w-full">
+              <a
+                href={githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-900 dark:text-gray-100 underline hover:no-underline font-bold"
+              >
+                GitHub
+              </a>
+            </div>
           </div>
-        </div>
+        )}
+        {viewDetailsButton}
       </div>
     </div>
   );

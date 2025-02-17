@@ -1,5 +1,4 @@
 import profilePhoto from './assets/IMG_8636.JPG'  // Update this import
-import Priyanshu_Kumar_Resume from './assets/Priyanshu_Kumar_Resume.pdf'  
 import ExperienceCard from './components/ExperienceCard'
 import EducationCard from './components/EducationCard'
 import TextRotator from './components/TextRotator'
@@ -10,8 +9,7 @@ import stock from './assets/stock.jpg'
 import yelp from './assets/yelp.jpg'
 import social from './assets/social.jpg'
 import credit from './assets/credit.jpg'
-import memoji from './assets/memoji.png'  // Make sure this import exists
-import ScrollingSections from './components/ScrollingSections'
+import bitbotImage from './assets/BitBot.jpg'
 import jiraCertificate from './assets/Jira Fundamentals Badge.jpg' // adjust the extension if different
 
 import {
@@ -27,11 +25,15 @@ import {
   Award,
 } from 'lucide-react';
 import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import BitBotProject from './pages/BitBotProject';
 import ProjectCard from './components/ProjectCard';
 import SkillCard from './components/SkillCard';
 import Typewriter from './components/Typewriter';
 
-function App() {
+function MainContent() {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const handleScroll = (e: Event) => {
       e.preventDefault();
@@ -64,7 +66,7 @@ function App() {
     script.type = 'text/javascript';
     script.async = true;
     script.src = "https://cdn.credly.com/assets/utilities/embed.js";
-    
+
     // Append the script to the document
     document.body.appendChild(script);
 
@@ -93,18 +95,18 @@ function App() {
       </h1>
       <h2 className="text-2xl md:text-3xl font-bold mb-8 min-h-[2em] flex flex-col items-center justify-center gap-1">
         <span>Hey folks, I'm a</span>
-        <TextRotator 
+        <TextRotator
           texts={[
-        'Data Analyst 📈',
-        'Data Scientist 📊',
-        'Data Engineer 🛠️',
-        'Data Storyteller 📚'
-          ]} 
+            'Data Analyst 📈',
+            'Data Scientist 📊',
+            'Data Engineer 🛠️',
+            'Data Storyteller 📚'
+          ]}
           interval={2000}
         />
       </h2>
-      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">  
-        Crafting Actionable Intelligence from Complex Data  
+      <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+        Crafting Actionable Intelligence from Complex Data
       </p>
       <div className="flex justify-center space-x-4">
         <a
@@ -187,7 +189,7 @@ function App() {
           <div className="bg-white dark:bg-gray-900">
             <div className="max-w-3xl mx-auto px-4 py-20">
               <h2 className="text-3xl font-bold mb-12 text-center">The Story So Far</h2>
-              
+
               <div className="space-y-12 text-lg text-gray-600 dark:text-gray-300 text-center">
                 <div>
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
@@ -254,10 +256,31 @@ function App() {
           <div className="bg-white dark:bg-gray-900">
             <h2 className="text-3xl font-bold text-center mb-12">Featured Projects</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div onClick={() => navigate('/projects/bitbot')} className="cursor-pointer">
+                <ProjectCard
+                  title="BitBot"
+                  description="Developed BitBot, an AI-driven crypto assistant using LLMs, RAG, and web scraping to provide real-time market insights and foundational knowledge. Built on Dify, it minimizes hallucinations, enhances user engagement, and reduces support costs. Designed a scalable workflow to help financial firms educate users and automate responses, improving accessibility and decision-making in cryptocurrency markets."
+                  technologies={["LLM", "RAG", "Dify", "Docker", "Workflow", "Educational"]}
+                  image={bitbotImage}
+                  viewDetailsButton={
+                    <div className="mt-6 text-center">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate('/projects/bitbot');
+                        }}
+                        className="bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white px-6 py-2 rounded-full transition-colors duration-200 flex items-center justify-center mx-auto"
+                      >
+                        View Project Details →
+                      </button>
+                    </div>
+                  }
+                />
+              </div>
               <ProjectCard
                 title="Stock Portfolio Optimization and Rebalancing Analysis"
                 description="Engineered a data-driven stock portfolio optimization framework using Python, Modern Portfolio Theory (MPT), and Monte Carlo simulations to balance risk-return tradeoffs. Leveraged integer programming (Pyomo) to allocate $100k across 9 S&P 500 stocks (3 per sector) under constraints (min. 2% per stock, sector diversification). Simulated 1,000 market scenarios to quantify risk and compared rebalancing strategies (Buy-and-Hold vs. Daily/Weekly/Monthly), revealing 'Buy and Hold' as optimal for volatility-adjusted returns. Built visualizations (efficient frontier, density plots) to validate MPT allocations and presented findings in a reproducible Jupyter notebook, adhering to academic standards for code quality and concision."
-                technologies={['Python', 'MPT optimization' , 'Monte Carlo simulation', 'Pandas' , 'NumPy', 'Matplotlib' , 'SciPy' , 'Statsmodels' , 'Pyomo']}
+                technologies={['Python', 'MPT optimization', 'Monte Carlo simulation', 'Pandas', 'NumPy', 'Matplotlib', 'SciPy', 'Statsmodels', 'Pyomo']}
                 githubLink="https://github.com/kumarpriyanshu09/stock-portfolio-optimization"
                 image={stock}
               />
@@ -271,7 +294,7 @@ function App() {
               <ProjectCard
                 title="Credit Delinquency Prediction"
                 description="This project develops a machine learning model to predict credit card payment delinquency, emphasizing transparency and feature importance."
-                technologies={['Python', 'pandas', 'numpy', 'matplotlib' , 'seaborn' , 'scikit-learn' , 'statsmodels' , 'imbalanced-learn' , 'xgboost']}
+                technologies={['Python', 'pandas', 'numpy', 'matplotlib', 'seaborn', 'scikit-learn', 'statsmodels', 'imbalanced-learn', 'xgboost']}
                 githubLink="https://github.com/kumarpriyanshu09/credit-delinquency-prediction"
                 image={credit}
               />
@@ -285,7 +308,7 @@ function App() {
               <ProjectCard
                 title="Yelp Restaurant Review Analysis"
                 description="Text mining project that analyzes Yelp reviews to understand customer sentiment, identify key themes, and discover business insights."
-                technologies={['Python' , 'Pandas' , 'NLTK' , 'TextBlob' , 'Scikit-learn' , 'Matplotlib' , 'Seaborn' , 'statsmodel']}
+                technologies={['Python', 'Pandas', 'NLTK', 'TextBlob', 'Scikit-learn', 'Matplotlib', 'Seaborn', 'statsmodel']}
                 githubLink="https://github.com"
                 image={yelp}
               />
@@ -367,7 +390,7 @@ function App() {
                   "Collaborated with colleagues in LLM frameworks, fostering innovative data solutions and streamlining generative AI implementations."
                 ]}
               />
-              
+
               <ExperienceCard
                 company="REINO PREFAB PRIVATE LTD."
                 position="Data Analyst"
@@ -381,7 +404,7 @@ function App() {
                   "Conducted stakeholder briefings on data insights, fostering informed decision-making and stakeholder alignment."
                 ]}
               />
-              
+
               <ExperienceCard
                 company="Inator"
                 position="Data Analyst Intern"
@@ -424,7 +447,7 @@ function App() {
                     "Visual Analytics"
                   ]}
                 />
-                
+
                 <EducationCard
                   institution="Maharashtra Institute of Technology"
                   degree="Bachelor's in Electrical Engineering"
@@ -454,25 +477,25 @@ function App() {
               <div className="flex justify-center flex-wrap gap-8 mb-16">
                 {/* AWS Credly Badge */}
                 <div className="flex flex-col items-center min-h-[300px]">
-                  <div 
-                    data-iframe-width="200" 
-                    data-iframe-height="200" 
-                    data-share-badge-id="cddfea78-db52-4b67-b518-d9f98e7f0d25" 
+                  <div
+                    data-iframe-width="200"
+                    data-iframe-height="200"
+                    data-share-badge-id="cddfea78-db52-4b67-b518-d9f98e7f0d25"
                     data-share-badge-host="https://www.credly.com"
                   ></div>
                 </div>
 
                 {/* Jira Fundamentals Certificate */}
                 <div className="flex flex-col items-center min-h-[300px]">
-                  <a 
-                    href="https://university.atlassian.com/student/award/gkWT6UZtv51p5yKWTTt83WeW" 
-                    target="_blank" 
+                  <a
+                    href="https://university.atlassian.com/student/award/gkWT6UZtv51p5yKWTTt83WeW"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="block hover:opacity-80 transition-opacity"
                   >
-                    <img 
-                      src={jiraCertificate} 
-                      alt="Jira Fundamentals Assessment" 
+                    <img
+                      src={jiraCertificate}
+                      alt="Jira Fundamentals Assessment"
                       className="w-[200px] h-[200px] object-contain rounded-lg shadow-md"
                     />
                   </a>
@@ -531,7 +554,7 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400">
-              © {new Date().getFullYear()} Priyanshu Kumar. All rights reserved.
+              &copy; {new Date().getFullYear()} Priyanshu Kumar. All rights reserved.
             </p>
             <div className="flex gap-8 mt-4 md:mt-0">
               <a href="#about" className="hover:text-gray-400">About</a>
@@ -541,6 +564,19 @@ function App() {
           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+      <BrowserRouter basename="/get2knowPriyanshu">
+        <Routes>
+          <Route path="/projects/bitbot" element={<BitBotProject />} />
+          <Route path="/" element={<MainContent />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
