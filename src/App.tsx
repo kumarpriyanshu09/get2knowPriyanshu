@@ -378,7 +378,7 @@ function MainContent() {
             <h2 className="text-3xl font-bold text-center mb-12">Experience</h2>
             <div className="max-w-3xl mx-auto space-y-6">
               <ExperienceCard
-                company="ANANDA"
+                company="Ananda"
                 position="Gen AI Engineer"
                 duration="August 2024 - December 2024"
                 location="Storrs, CT"
@@ -394,7 +394,7 @@ function MainContent() {
               <ExperienceCard
                 company="REINO PREFAB PRIVATE LTD."
                 position="Data Analyst"
-                duration="January 2023 - July 2023"
+                duration="June 2022 - July 2023"
                 location="Pune, India"
                 description={[
                   "Revamped SQL data collection system, enhancing data accuracy by 100% and optimizing analysis efficiency.",
