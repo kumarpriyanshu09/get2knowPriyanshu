@@ -24,15 +24,18 @@ import {
   Briefcase,
   Award,
 } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import BitBotProject from './pages/BitBotProject';
 import ProjectCard from './components/ProjectCard';
 import SkillCard from './components/SkillCard';
 import Typewriter from './components/Typewriter';
+import EmailModal from './components/EmailModal';
 
 function MainContent() {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const email = "kumarpriyanshu09@gmail.com";
 
   useEffect(() => {
     const handleScroll = (e: Event) => {
@@ -78,6 +81,12 @@ function MainContent() {
       }
     };
   }, []);
+
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+    window.open(`mailto:${email}`);
+  };
 
   const heroContent = (
     <div className="max-w-3xl mx-auto px-4">
@@ -179,73 +188,6 @@ function MainContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gray-50 dark:bg-gray-800 rounded-lg">
             {aboutContent}
-          </div>
-        </div>
-      </Section>
-
-      {/* Story Section */}
-      <Section id="story">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white dark:bg-gray-900">
-            <div className="max-w-3xl mx-auto px-4 py-20">
-              <h2 className="text-3xl font-bold mb-12 text-center">The Story So Far</h2>
-
-              <div className="space-y-12 text-lg text-gray-600 dark:text-gray-300 text-center">
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    The Indomitable Spirit of Reason in Data
-                  </h3>
-                  <p className="mb-6">
-                    In the crucible of lockdown, when the world stood still, Priyanshu discovered a realm where the mind could flourish undistracted: the world of data. It was not mere chance that led him here, but an unyielding curiosity and a reverence for the power of reason. In a society obsessed with the ephemeral, he found substance in statistics, in the raw, unadorned truth that numbers could reveal. There, amidst percentages and trends, he encountered a philosophy of clarity—a demonstration of how data not only informs decisions but shapes the destiny of enterprises, delivering tangible value to clients and collaborators.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    From Intellectual Pursuit to Mastery
-                  </h3>
-                  <p className="mb-6">
-                    Priyanshu embarked on a rigorous intellectual journey, pursuing studies in statistics, Python, machine learning, and the mathematics of artificial intelligence. His approach was one of deliberate focus, seeking truth through disciplined inquiry and relentless questioning. Gathering wisdom from data professionals, he absorbed knowledge like a sponge, driven by conviction that the individual mind, equipped with reason, could unravel complexities. This mastery translates directly to clients through precise, data-driven strategies, insightful analysis, and innovative solutions that drive growth and efficiency.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    Application in the Service of Purpose
-                  </h3>
-                  <p className="mb-6">
-                    In the practical arena, Priyanshu applied his learning with the precision and clarity of one who understands that purpose is shaped by action. As a data analyst intern and later at Reno Prefab Ltd., he confronted challenges head-on, transforming confusion into clarity. He restructured SQL systems—saving countless hours and optimizing workflow—and collaborated with leaders to implement data-driven strategies that enhanced decision-making. His work elevates projects, delivering measurable improvements and insights that benefit teams, stakeholders, and end-users alike.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    A Bold Odyssey to New Horizons
-                  </h3>
-                  <p className="mb-6">
-                    Unwilling to remain confined by circumstance, Priyanshu ventured to the United States, a land where the highest ideals of education and innovation converge. At the University of Connecticut School of Business, his pursuit of a Master's in Business Analytics and Project Management was not merely academic—it was an assertion of his belief in the power of the individual to forge new paths. Surrounded by diverse intellects and cutting-edge technology, he honed his mastery of tools and concepts, each new challenge met with the quiet confidence of someone who trusts his reasoning. This expertise becomes an asset to collaborators, offering fresh perspectives and strategic insights that lead to successful outcomes.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    The Future—A Canvas of Infinite Possibilities
-                  </h3>
-                  <p className="mb-6">
-                    In a world increasingly shaped by artificial intelligence and uncharted data frontiers, Priyanshu stands as a beacon of rational inquiry and fearless innovation. His recent endeavors at Ananda, guiding teams in training custom language models and devising strategies for volatile crypto assets, are not merely projects but manifestations of a relentless spirit—one that sees obstacles as opportunities to exercise intellect and will. By transforming data into actionable insights, he provides clients with strategies that mitigate risks and optimize performance.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                    Driven by Curiosity and Collaboration
-                  </h3>
-                  <p className="mb-6">
-                    Priyanshu isn't just passionate about data—he's passionate about people and the impact his work can have. He believes that the best breakthroughs come from collaboration, shared experiences, and the relentless pursuit of knowledge. For clients and collaborators, his unique blend of philosophical rigor and practical expertise means receiving insights that not only inform but also empower informed decisions and sustainable growth. If his journey and vision resonate with you, reach out through the contact section. For Priyanshu, the greatest reward lies in the shared journey of discovery and success.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </Section>
@@ -537,8 +479,8 @@ function MainContent() {
                     <Github className="w-12 h-12" />
                   </a>
                   <a
-                    href="mailto:kumarpriyanshu09@hmail.com"
-                    className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100"
+                    onClick={handleEmailClick}
+                    className="text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-100 cursor-pointer"
                   >
                     <Mail className="w-12 h-12" />
                   </a>
@@ -548,6 +490,9 @@ function MainContent() {
           </div>
         </div>
       </Section>
+
+      {/* Email Modal */}
+      <EmailModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} email={email} />
 
       {/* Footer */}
       <footer className="bg-gray-900 dark:bg-gray-950 text-white py-8">

@@ -4,7 +4,6 @@ import ThemeToggle from './ThemeToggle';
 const Navbar = () => {
   const navLinks = [
     { name: 'About Me', href: '#about' },
-    { name: 'Story', href: '#story' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
