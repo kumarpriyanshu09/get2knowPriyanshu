@@ -6,7 +6,7 @@ interface EducationCardProps {
   degree: string;
   duration: string;
   location: string;
-  gpa: string;
+  gpa: React.ReactNode; // Changed type from string to React.ReactNode
   courses: string[];
 }
 

@@ -10,6 +10,7 @@ import yelp from './assets/yelp.jpg'
 import social from './assets/social.jpg'
 import credit from './assets/credit.jpg'
 import bitbotImage from './assets/BitBot.jpg'
+import aiImpactImage from './assets/cover.png' // Added import for the new project image
 import jiraCertificate from './assets/Jira Fundamentals Badge.jpg' // adjust the extension if different
 
 import {
@@ -25,15 +26,17 @@ import {
   Award,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+// Re-added useNavigate import
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'; 
 import BitBotProject from './pages/BitBotProject';
+import AIDashboardProject from './pages/AIDashboardProject'; // Import the new component
 import ProjectCard from './components/ProjectCard';
 import SkillCard from './components/SkillCard';
 import Typewriter from './components/Typewriter';
 import EmailModal from './components/EmailModal';
 
 function MainContent() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Re-added navigate
   const [isModalOpen, setIsModalOpen] = useState(false);
   const email = "kumarpriyanshu09@gmail.com";
 
@@ -198,20 +201,40 @@ function MainContent() {
           <div className="bg-white dark:bg-gray-900">
             <h2 className="text-3xl font-bold text-center mb-12">Featured Projects</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div onClick={() => navigate('/projects/bitbot')} className="cursor-pointer">
+              {/* New AI Impact Dashboard Project Card - Added viewDetailsButton back */}
+              <div> {/* Removed the onClick wrapper from the div */}
+                <ProjectCard
+                  title="AI's Rise and Societal Impact Dashboard"
+                  description="Developed an interactive Tableau dashboard that explores AI's impact on industries, employment, and society. This visualization presents comprehensive data on global AI investment trends, automation risks across professions, industry adoption patterns, and regulatory responses. Created to provide organizations, professionals, and policymakers with actionable insights for strategic planning, workforce development, and competitive positioning in an AI-driven economy."
+                  technologies={["Tableau Desktop", "Data Visualization", "Dashboard Design", "Interactive Filtering", "Data Storytelling", "Analytical Reporting"]}
+                  image={aiImpactImage}
+                  // Added viewDetailsButton prop back
+                  viewDetailsButton={
+                    <div className="mt-4 text-center"> {/* Adjusted margin */}
+                      <button
+                        onClick={() => navigate('/projects/ai-impact-dashboard')} // Navigate on button click
+                        className="bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white px-6 py-2 rounded-full transition-colors duration-200 flex items-center justify-center mx-auto text-sm" // Adjusted size
+                      >
+                        View Project Details →
+                      </button>
+                    </div>
+                  }
+                />
+              </div>
+
+              {/* Existing BitBot Project Card - Added viewDetailsButton back */}
+              <div> {/* Removed the onClick wrapper from the div */}
                 <ProjectCard
                   title="BitBot"
                   description="Developed BitBot, an AI-driven crypto assistant using LLMs, RAG, and web scraping to provide real-time market insights and foundational knowledge. Built on Dify, it minimizes hallucinations, enhances user engagement, and reduces support costs. Designed a scalable workflow to help financial firms educate users and automate responses, improving accessibility and decision-making in cryptocurrency markets."
                   technologies={["LLM", "RAG", "Dify", "Docker", "Workflow", "Educational"]}
                   image={bitbotImage}
-                  viewDetailsButton={
-                    <div className="mt-6 text-center">
+                   // Added viewDetailsButton prop back
+                   viewDetailsButton={
+                    <div className="mt-4 text-center"> {/* Adjusted margin */}
                       <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          navigate('/projects/bitbot');
-                        }}
-                        className="bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white px-6 py-2 rounded-full transition-colors duration-200 flex items-center justify-center mx-auto"
+                        onClick={() => navigate('/projects/bitbot')} // Navigate on button click
+                        className="bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white px-6 py-2 rounded-full transition-colors duration-200 flex items-center justify-center mx-auto text-sm" // Adjusted size
                       >
                         View Project Details →
                       </button>
@@ -519,6 +542,7 @@ function App() {
       <BrowserRouter basename="/get2knowPriyanshu">
         <Routes>
           <Route path="/projects/bitbot" element={<BitBotProject />} />
+          <Route path="/projects/ai-impact-dashboard" element={<AIDashboardProject />} /> {/* Add route for AI Dashboard */}
           <Route path="/" element={<MainContent />} />
         </Routes>
       </BrowserRouter>

@@ -74,7 +74,8 @@ export default function ProjectCard({
             </button>
           )}
         </div>
-        <div className="flex flex-wrap gap-2 mb-4">
+        {/* Reduced gap and margin-bottom for tags */}
+        <div className="flex flex-wrap gap-1.5 mb-3 mt-3"> 
           {technologies.map((tech) => (
             <span
               key={tech}
