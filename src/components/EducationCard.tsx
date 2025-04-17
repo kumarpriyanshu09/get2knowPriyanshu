@@ -21,34 +21,36 @@ export default function EducationCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 p-6">
+    // Use semantic card background
+    <div className="bg-card-bg dark:bg-card-bg-dark rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 p-6">
       <div
         className="cursor-pointer"
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div className="flex items-start justify-between">
           <div className="flex items-start space-x-4">
-            <GraduationCap className="w-6 h-6 mt-1 text-gray-700 dark:text-gray-300" />
+             {/* Use semantic text colors */}
+            <GraduationCap className="w-6 h-6 mt-1 text-text-secondary dark:text-text-secondary-dark" />
             <div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+              <h3 className="text-xl font-bold text-text-primary dark:text-text-primary-dark">
                 {institution}
               </h3>
-              <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
+              <p className="text-lg font-medium text-text-secondary dark:text-text-secondary-dark">
                 {degree}
               </p>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
+              <div className="text-sm text-text-accent dark:text-text-accent-dark">
                 {duration} | {location}
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              <div className="text-sm text-text-accent dark:text-text-accent-dark mt-1">
                 GPA: {gpa}
               </div>
             </div>
           </div>
           {courses && courses.length > 0 && (
             isExpanded ? (
-              <ChevronUp className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+              <ChevronUp className="w-5 h-5 text-text-accent dark:text-text-accent-dark" />
             ) : (
-              <ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+              <ChevronDown className="w-5 h-5 text-text-accent dark:text-text-accent-dark" />
             )
           )}
         </div>
@@ -60,15 +62,17 @@ export default function EducationCard({
             isExpanded ? 'max-h-[1000px] sm:max-h-96' : 'max-h-0'
           }`}
         >
-          <h4 className="font-bold mb-2 text-gray-900 dark:text-white">Relevant Courses:</h4>
+           {/* Use semantic text colors and adjust background */}
+          <h4 className="font-bold mb-2 text-text-primary dark:text-text-primary-dark">Relevant Courses:</h4>
           <div className="space-y-2">
             {courses.map((course) => (
               <p
                 key={course}
-                className="text-gray-700 dark:text-gray-300 pl-6 py-2 bg-gray-50/50 dark:bg-gray-700/50 rounded-md text-sm sm:text-base"
+                // Removed background and rounded classes, adjusted padding
+                className="text-text-secondary dark:text-text-secondary-dark pl-4 py-1 text-sm sm:text-base" 
                 style={{
-                  textIndent: '-0.8rem',
-                  paddingLeft: '2rem',
+                  textIndent: '-0.8rem', // Keep bullet indentation
+                  paddingLeft: '1.5rem', // Adjust left padding for bullet
                   wordBreak: 'break-word'
                 }}
               >

@@ -12,5 +12,66 @@ html {
 }
 
 body {
-  @apply bg-gray-50 dark:bg-gray-900;
+  /* Apply theme background colors */
+  @apply bg-page-bg dark:bg-page-bg-dark;
+}
+
+/* Define CSS Color Variables */
+:root {
+  /* Light Mode Palette */
+  --color-page-bg: #FFFBEB;                 /* Cosmic Latte */
+  --color-section-bg: #FFF1D4;           /* Papaya Whip */
+  --color-card-bg: #F8EDD9;                 /* Antique White */
+  --color-button-primary-bg: #317039;       /* Emerald Green */
+  --color-button-primary-text: #FFFBEB;    /* Cosmic Latte */
+  --color-tag-bg: #CC4B24;                   /* Dark Pastel Red */
+  --color-tag-text: #FFFBEB;               /* Cosmic Latte */
+  --color-progress-fill: #CC4B24;           /* Dark Pastel Red */
+  --color-text-primary: #111827;            /* Dark Gray/Black */
+  --color-text-secondary: #374151;           /* Medium Gray */
+  --color-text-accent: #317039;              /* Emerald Green */
+  --color-text-rotating-accent: #CC4B24;    /* Dark Pastel Red */
+  --color-highlight-subtle: #F1BE49;        /* Maximum Yellow */
+  --color-navbar-text: #FFFBEB;              /* Cosmic Latte - For dark navbar background */
+
+  /* Other Variables */
+  --image-grain-opacity: 0.6; /* Adjust this value (0 to 1) to change grain intensity */
+}
+
+.dark {
+  /* Dark Mode Palette - Adjust as needed for optimal appearance */
+  --color-page-bg-dark: #111827;             /* gray-900 */
+  --color-section-bg-dark: #1F2937;       /* gray-800 */
+  --color-card-bg-dark: #374151;             /* gray-700 */
+  --color-button-primary-bg-dark: #317039; /* Emerald Green (Check contrast) */
+  --color-button-primary-text-dark: #FFFBEB;/* Cosmic Latte */
+  --color-tag-bg-dark: #CC4B24;               /* Dark Pastel Red (Check contrast) */
+  --color-tag-text-dark: #FFFBEB;           /* Cosmic Latte */
+  --color-progress-fill-dark: #CC4B24;     /* Dark Pastel Red (Check contrast) */
+  --color-text-primary-dark: #FFFFFF;       /* White */
+  --color-text-secondary-dark: #D1D5DB;    /* gray-300 */
+  --color-text-accent-dark: #6EE7B7;         /* Emerald-300 (Lighter Green) */
+  --color-text-rotating-accent-dark: #F59E0B; /* Amber-500 */
+  --color-highlight-subtle-dark: #FBBF24;    /* Amber-400 */
+}
+
+/* Apply grain effect to images */
+img {
+  position: relative; /* Ensure pseudo-element is positioned correctly */
+  isolation: isolate; /* Create new stacking context to contain the pseudo-element */
+}
+
+img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Subtle noise pattern using SVG */
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+  opacity: var(--image-grain-opacity); /* Use the variable */
+  pointer-events: none; /* Allow interaction with the image */
+  z-index: 1; /* Place overlay above the image */
+  mix-blend-mode: overlay; /* Blend the noise nicely */
 }

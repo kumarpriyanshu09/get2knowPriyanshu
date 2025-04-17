@@ -42,7 +42,8 @@ const TextRotator: React.FC<Props> = ({ texts = [], interval = 3000 }) => {
 
   return (
     <span 
-      className="inline-block font-bold text-orange-500 text-center"
+      // Use semantic classes for rotating text color
+      className="inline-block font-bold text-text-rotating-accent dark:text-text-rotating-accent-dark text-center"
       style={{
         transition: 'opacity 0.5s ease-in-out',
         opacity: opacity,

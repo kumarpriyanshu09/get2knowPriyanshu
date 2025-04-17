@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowLeft, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react'; // Added ChevronLeft/Right
+import { useState, useEffect } from 'react'; // Removed React import
+import { ChevronUp, ChevronLeft, ChevronRight, Home } from 'lucide-react'; // Removed ArrowLeft, Added Home icon
 import { Link } from 'react-router-dom'; // Use Link for Back button
 import bitbotImage from '../assets/BitBot.jpg';
 import ragResponse from '../assets/BitBot/RAG Response.png';
 import latestNews from '../assets/BitBot/Lates crypto news .png';
 import preview from '../assets/BitBot/Preview.png';
 import workflow from '../assets/BitBot/Workflow.png';
+// Removed theme import
 
 // Helper function for smooth scrolling (same as in AIDashboardProject)
 const scrollToSection = (id: string) => {
@@ -27,6 +28,11 @@ const scrollToSection = (id: string) => {
 export default function BitBotProject() {
   const [isTocOpen, setIsTocOpen] = useState(true); // State for sidebar
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Reset scroll position when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,18 +70,27 @@ export default function BitBotProject() {
 
 
   return (
-    <div className="flex min-h-screen bg-background text-foreground">
+    // Use semantic page background
+    <div className="flex min-h-screen bg-page-bg dark:bg-page-bg-dark text-text-primary dark:text-text-primary-dark">
       {/* Collapsible Sidebar TOC (similar to AIDashboardProject) */}
       <aside
-        className={`sticky top-0 h-screen transition-all duration-300 ease-in-out bg-gray-100 dark:bg-gray-800 shadow-lg flex flex-col ${
+        className={`sticky top-0 h-screen transition-all duration-300 ease-in-out bg-section-bg dark:bg-section-bg-dark shadow-lg flex flex-col ${ // Applied papaya theme
           isTocOpen ? 'w-64 p-4' : 'w-0 p-0 overflow-hidden'
         }`}
       >
         {isTocOpen && (
           <>
-            <h3 className="text-lg font-semibold mb-4 text-center border-b pb-2 dark:border-gray-600">
-              Page Navigation
-            </h3>
+            {/* Back to Home Link at the top */}
+            <div className="mb-4 pb-4 border-b dark:border-gray-600 flex justify-between items-center">
+              <Link to="/" className="text-text-primary dark:text-text-primary-dark hover:text-red-400 dark:hover:text-red-400" title="Back to Home">
+                <Home className="h-5 w-5" />
+              </Link>
+              <h3 className="text-lg font-semibold text-center flex-grow"> {/* Adjusted title positioning */}
+                Table of Content
+              </h3>
+              {/* Placeholder for potential future icons or actions on the right */}
+              <div className="w-5"></div>
+            </div>
             <nav className="flex-grow overflow-y-auto">
               <ul className="space-y-1">
                 {sections.map((section) => (
@@ -90,13 +105,7 @@ export default function BitBotProject() {
                 ))}
               </ul>
             </nav>
-             {/* Back to Home Link inside Sidebar */}
-             <div className="mt-4 pt-4 border-t dark:border-gray-600">
-                <Link to="/" className="flex items-center text-sm text-blue-600 dark:text-blue-400 hover:underline">
-                  <ArrowLeft className="h-4 w-4 mr-1" />
-                  Back to Home
-                </Link>
-             </div>
+            {/* Removed the old Back to Home Link from the bottom */}
           </>
         )}
       </aside>
@@ -111,15 +120,18 @@ export default function BitBotProject() {
           }`}
           aria-label={isTocOpen ? 'Collapse Navigation' : 'Expand Navigation'}
         >
-          {isTocOpen ? <ChevronLeft className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
+          {isTocOpen ? <ChevronLeft className="h-5 w-5 text-red-400" /> : <ChevronRight className="h-5 w-5 text-red-400" />}
         </button>
 
         {/* Page Content */}
         <main className="container mx-auto px-6 md:px-10 py-16"> {/* Added padding */}
 
           {/* Project Header */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-12"> {/* Increased mb */}
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center">BitBot - Smart Crypto Assistant</h1>
+           {/* Use semantic section background and text colors */}
+          <div className="bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8 mb-12"> 
+            <h1 className="text-4xl font-bold text-text-primary dark:text-text-primary-dark mb-4 text-center"> 
+              BitBot - Smart Crypto Assistant
+            </h1>
             <div className="relative group cursor-pointer mb-6 max-w-3xl mx-auto"> {/* Centered image */}
               <img
                 src={bitbotImage}
@@ -135,8 +147,8 @@ export default function BitBotProject() {
                {techStack.map((tech) => (
                  <span
                    key={tech.name}
-                   // Example using fixed colors, replace with actual color logic if needed
-                   className={`px-3 py-1 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-sm transition-transform hover:scale-105 cursor-default`}
+                   // Use semantic tag colors
+                   className="px-3 py-1 bg-tag-bg dark:bg-tag-bg-dark text-tag-text dark:text-tag-text-dark rounded-full text-sm transition-transform hover:scale-105 cursor-default"
                  >
                    {tech.name}
                  </span>
@@ -146,9 +158,12 @@ export default function BitBotProject() {
 
           {/* Project Content Sections */}
           <div className="space-y-16 max-w-4xl mx-auto"> {/* Added spacing and max-width */}
-            <section id="overview" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2 dark:border-gray-700">Project Overview</h2>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+             {/* Use semantic section background and text colors */}
+            <section id="overview" className="bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8 scroll-mt-24">
+              <h2 className="text-2xl font-bold text-text-primary dark:text-text-primary-dark mb-4 border-b pb-2 dark:border-gray-700">
+                Project Overview
+              </h2>
+              <p className="text-text-secondary dark:text-text-secondary-dark leading-relaxed">
                 BitBot is a chatbot designed to help users understand cryptocurrency in simple terms. The crypto market is complex and constantly evolving, making it difficult for new users to access reliable and easy-to-understand information. BitBot solves this problem by leveraging Large Language Models (LLMs) to provide structured responses while minimizing misinformation through controlled query handling.
               </p>
               <div className="flex justify-center mt-6">
@@ -156,36 +171,42 @@ export default function BitBotProject() {
               </div>
             </section>
 
-            <section id="business-problem" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2 dark:border-gray-700">Business Problem</h2>
-              <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">Many users struggle to grasp cryptocurrency concepts due to the following reasons:</p>
-              <ol className="list-decimal text-gray-700 dark:text-gray-300 space-y-2 pl-6 leading-relaxed"> {/* Use pl-6 for hanging indent */}
+             {/* Use semantic section background and text colors */}
+            <section id="business-problem" className="bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8 scroll-mt-24">
+              <h2 className="text-2xl font-bold text-text-primary dark:text-text-primary-dark mb-4 border-b pb-2 dark:border-gray-700">
+                Business Problem
+              </h2>
+              <p className="text-text-secondary dark:text-text-secondary-dark mb-4 leading-relaxed">Many users struggle to grasp cryptocurrency concepts due to the following reasons:</p>
+              <ol className="list-decimal text-text-secondary dark:text-text-secondary-dark space-y-2 pl-6 leading-relaxed">
                 <li>Lack of accessible and reliable platforms for foundational crypto knowledge.</li>
                 <li>Limited tools that provide real-time updates in an intuitive conversational format.</li>
                 <li>High risk of misinformation due to AI hallucinations in non-specialized models.</li>
               </ol>
             </section>
 
-            <section id="solution" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 border-b pb-2 dark:border-gray-700">Solution Approach</h2>
+             {/* Use semantic section background and text colors */}
+            <section id="solution" className="bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8 scroll-mt-24">
+              <h2 className="text-2xl font-bold text-text-primary dark:text-text-primary-dark mb-6 border-b pb-2 dark:border-gray-700">
+                Solution Approach
+              </h2>
 
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3">Step 1: Identifying User Needs</h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+              <h3 className="text-xl font-semibold text-text-primary dark:text-text-primary-dark mb-3">Step 1: Identifying User Needs</h3>
+              <p className="text-text-secondary dark:text-text-secondary-dark mb-4 leading-relaxed">
                 We started by brainstorming common pain points for users trying to understand the crypto market. Users need a reliable assistant that can:
               </p>
-              <ul className="list-disc text-gray-700 dark:text-gray-300 space-y-2 pl-6 mb-6 leading-relaxed"> {/* Use pl-6 */}
+              <ul className="list-disc text-text-secondary dark:text-text-secondary-dark space-y-2 pl-6 mb-6 leading-relaxed"> {/* Use pl-6 */}
                 <li>Explain fundamental crypto concepts.</li>
                 <li>Provide real-time market updates.</li>
                 <li>Restrict responses to financial topics to prevent AI hallucinations.</li>
               </ul>
 
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3">Step 2: Workflow Design & Implementation</h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+              <h3 className="text-xl font-semibold text-text-primary dark:text-text-primary-dark mb-3">Step 2: Workflow Design & Implementation</h3>
+              <p className="text-text-secondary dark:text-text-secondary-dark mb-4 leading-relaxed">
                 BitBot's approach includes multiple LLMs and an orchestrated workflow using Dify, an open-source LLM app development platform.
               </p>
               <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 mb-6">
-                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">Chatbot Process:</h4>
-                <ol className="list-decimal text-gray-700 dark:text-gray-300 space-y-2 pl-6 leading-relaxed"> {/* Use pl-6 */}
+                <h4 className="text-lg font-semibold text-text-primary dark:text-text-primary-dark mb-3">Chatbot Process:</h4>
+                <ol className="list-decimal text-text-secondary dark:text-text-secondary-dark space-y-2 pl-6 leading-relaxed"> {/* Use pl-6 */}
                   <li><span className="font-medium">User Query Input</span> - The user asks a question.</li>
                   <li><span className="font-medium">Question Classification</span> - Query categorization into three classes.</li>
                   <li><span className="font-medium">Knowledge Retrieval or Web Scraping</span> - Data gathering based on query type.</li>
@@ -205,9 +226,10 @@ export default function BitBotProject() {
               </div>
             </section>
 
-            <section id="technology" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2 dark:border-gray-700">Technology Stack</h2>
-              <ul className="list-disc text-gray-700 dark:text-gray-300 space-y-2 pl-6 leading-relaxed"> {/* Use pl-6 */}
+             {/* Use semantic section background and text colors */}
+            <section id="technology" className="bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8 scroll-mt-24">
+              <h2 className="text-2xl font-bold text-text-primary dark:text-text-primary-dark mb-4 border-b pb-2 dark:border-gray-700">Technology Stack</h2>
+              <ul className="list-disc text-text-secondary dark:text-text-secondary-dark space-y-2 pl-6 leading-relaxed"> {/* Use pl-6 */}
                 <li><span className="font-medium">Dify</span> for workflow orchestration and deployment</li>
                 <li><span className="font-medium">Multiple LLM APIs</span> (Gemini 1.5 Pro and OpenAI) for response generation</li>
                 <li><span className="font-medium">Web Scraping Module</span> for real-time market updates</li>
@@ -225,8 +247,9 @@ export default function BitBotProject() {
               </div>
             </section>
 
-            <section id="business-value" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2 dark:border-gray-700">Business Value</h2>
+             {/* Use semantic section background and text colors */}
+            <section id="business-value" className="bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8 scroll-mt-24">
+              <h2 className="text-2xl font-bold text-text-primary dark:text-text-primary-dark mb-4 border-b pb-2 dark:border-gray-700">Business Value</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
                   { title: 'Education & User Engagement', desc: 'Financial companies can use BitBot to educate their users about cryptocurrency and investment opportunities.' },
@@ -236,17 +259,18 @@ export default function BitBotProject() {
                   { title: 'Easy Deployment & Maintenance', desc: 'BitBot can be quickly deployed with minimal upkeep, allowing companies to focus on product innovation.' },
                   { title: 'Scalability', desc: 'The system is designed to be easily upgraded, allowing new financial data or services to be integrated seamlessly.' }
                 ].map((item, index) => (
-                  <div key={index} className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg shadow"> {/* Added shadow */}
-                    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">{item.title}</h3>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{item.desc}</p>
+                  <div key={index} className="bg-card-bg dark:bg-card-bg-dark p-4 rounded-lg shadow"> {/* Use semantic card background */}
+                    <h3 className="text-lg font-semibold text-text-primary dark:text-text-primary-dark mb-2">{item.title}</h3>
+                    <p className="text-text-secondary dark:text-text-secondary-dark leading-relaxed">{item.desc}</p>
                   </div>
                 ))}
               </div>
             </section>
 
-            <section id="future" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2 dark:border-gray-700">Future Enhancements</h2>
-              <ul className="list-disc text-gray-700 dark:text-gray-300 space-y-2 pl-6 mb-6 leading-relaxed"> {/* Use pl-6 */}
+             {/* Use semantic section background and text colors */}
+            <section id="future" className="bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8 scroll-mt-24">
+              <h2 className="text-2xl font-bold text-text-primary dark:text-text-primary-dark mb-4 border-b pb-2 dark:border-gray-700">Future Enhancements</h2>
+              <ul className="list-disc text-text-secondary dark:text-text-secondary-dark space-y-2 pl-6 mb-6 leading-relaxed"> {/* Use pl-6 */}
                 <li>Expand its knowledge base with specialized materials for enhanced accuracy</li>
                 <li>Integrate a 7-day graphical trend visualization for crypto market analysis</li>
                 <li>Enhance response personalization based on user behavior and preferences</li>
@@ -257,9 +281,10 @@ export default function BitBotProject() {
               </div>
             </section>
 
-            <section id="conclusion" className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 scroll-mt-24">
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 border-b pb-2 dark:border-gray-700">Conclusion</h2>
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+             {/* Use semantic section background and text colors */}
+            <section id="conclusion" className="bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8 scroll-mt-24">
+              <h2 className="text-2xl font-bold text-text-primary dark:text-text-primary-dark mb-4 border-b pb-2 dark:border-gray-700">Conclusion</h2>
+              <p className="text-text-secondary dark:text-text-secondary-dark leading-relaxed">
                 BitBot is a powerful AI-driven assistant tailored for cryptocurrency education and real-time market updates. With a structured workflow, multi-LLM integration, and strict domain restrictions, it ensures accurate, reliable, and user-friendly financial guidance. Whether for individuals learning about crypto or financial firms enhancing their user engagement, BitBot delivers value efficiently and effectively.
               </p>
             </section>
@@ -269,7 +294,8 @@ export default function BitBotProject() {
           {showScrollTop && (
             <button
               onClick={scrollToTop}
-              className="fixed bottom-8 right-8 bg-gray-900 dark:bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors duration-200 z-20" // Ensure z-index is high enough
+               // Use standard button styling for now, can be themed later if needed
+              className="fixed bottom-8 right-8 bg-gray-900 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-gray-600 text-white p-3 rounded-full shadow-lg transition-colors duration-200 z-20"
             >
               <ChevronUp size={24} />
             </button>

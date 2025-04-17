@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react'; // Removed React import
 import { ChevronDown, ChevronUp, Building2 } from 'lucide-react';
 
 interface ExperienceCardProps {
@@ -19,31 +19,33 @@ export default function ExperienceCard({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 p-6">
+    // Use semantic card background
+    <div className="bg-card-bg dark:bg-card-bg-dark rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 p-6">
       <div
         className="cursor-pointer"
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div className="flex items-start justify-between">
           <div className="flex items-start space-x-4">
-            <Building2 className="w-6 h-6 mt-1 text-gray-700 dark:text-gray-300" />
+            {/* Use semantic text colors */}
+            <Building2 className="w-6 h-6 mt-1 text-text-secondary dark:text-text-secondary-dark" />
             <div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+              <h3 className="text-xl font-bold text-text-primary dark:text-text-primary-dark">
                 {position}
               </h3>
-              <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
+              <p className="text-lg font-medium text-text-secondary dark:text-text-secondary-dark">
                 {company}
               </p>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
+              <div className="text-sm text-text-accent dark:text-text-accent-dark">
                 {duration} | {location}
               </div>
             </div>
           </div>
           {description && description.length > 0 && (
             isExpanded ? (
-              <ChevronUp className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+              <ChevronUp className="w-5 h-5 text-text-accent dark:text-text-accent-dark" />
             ) : (
-              <ChevronDown className="w-5 h-5 text-gray-500 dark:text-gray-400" />
+              <ChevronDown className="w-5 h-5 text-text-accent dark:text-text-accent-dark" />
             )
           )}
         </div>
@@ -58,7 +60,8 @@ export default function ExperienceCard({
           {description.map((item, index) => (
             <p
               key={index}
-              className="text-gray-700 dark:text-gray-300 pl-8 py-2 bg-gray-50/50 dark:bg-gray-700/50 rounded-md text-sm sm:text-base relative"
+              // Use semantic text colors and Cosmic White bullet background
+              className="text-text-secondary dark:text-text-secondary-dark pl-8 py-2 bg-bullet-bg dark:bg-bullet-bg-dark rounded-md text-sm sm:text-base relative" // bullet-bg is now Cosmic White
             >
               <span className="absolute left-3">•</span>
               <span className="block pl-2 whitespace-pre-wrap">

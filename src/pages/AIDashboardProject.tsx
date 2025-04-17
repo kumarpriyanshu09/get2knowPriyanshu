@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // Added useEffect to imports
 import { Link } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, ArrowLeft } from 'lucide-react'; // Icons for toggle and back button
+import { ChevronLeft, ChevronRight, Home } from 'lucide-react'; // Removed ArrowLeft, Added Home icon
+// Removed theme import
 
 // Helper function for smooth scrolling
 const scrollToSection = (id: string) => {
@@ -22,6 +23,11 @@ const scrollToSection = (id: string) => {
 
 const AIDashboardProject: React.FC = () => {
   const [isTocOpen, setIsTocOpen] = useState(true); // Default to open
+
+  // Reset scroll position when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Note: Using useEffect hook for safer script handling in React
   React.useEffect(() => {
@@ -82,18 +88,27 @@ const AIDashboardProject: React.FC = () => {
   ];
 
   return (
-    <div className="flex min-h-screen bg-background text-foreground">
+    // Use semantic page background and primary text color
+    <div className="flex min-h-screen bg-page-bg dark:bg-page-bg-dark text-text-primary dark:text-text-primary-dark">
       {/* Collapsible Sidebar TOC */}
       <aside
-        className={`sticky top-0 h-screen transition-all duration-300 ease-in-out bg-gray-100 dark:bg-gray-800 shadow-lg flex flex-col ${
+        className={`sticky top-0 h-screen transition-all duration-300 ease-in-out bg-section-bg dark:bg-section-bg-dark shadow-lg flex flex-col ${ // Applied papaya theme
           isTocOpen ? 'w-64 p-4' : 'w-0 p-0 overflow-hidden'
         }`}
       >
         {isTocOpen && (
           <>
-            <h3 className="text-lg font-semibold mb-4 text-center border-b pb-2 dark:border-gray-600">
-              Table of Contents
-            </h3>
+            {/* Back to Home Link at the top */}
+            <div className="mb-4 pb-4 border-b dark:border-gray-600 flex justify-between items-center">
+              <Link to="/" className="text-text-primary dark:text-text-primary-dark hover:text-red-400 dark:hover:text-red-400" title="Back to Home">
+                <Home className="h-5 w-5" />
+              </Link>
+              <h3 className="text-lg font-semibold text-center flex-grow"> {/* Adjusted title positioning */}
+                Table of Content
+              </h3>
+              {/* Placeholder for potential future icons or actions on the right */}
+              <div className="w-5"></div>
+            </div>
             <nav className="flex-grow overflow-y-auto">
               <ul className="space-y-1">
                 {sections.map((section) => (
@@ -108,13 +123,7 @@ const AIDashboardProject: React.FC = () => {
                 ))}
               </ul>
             </nav>
-             {/* Back to Home Link inside Sidebar */}
-             <div className="mt-4 pt-4 border-t dark:border-gray-600">
-                <Link to="/" className="flex items-center text-sm text-blue-600 dark:text-blue-400 hover:underline">
-                  <ArrowLeft className="h-4 w-4 mr-1" />
-                  Back to Home
-                </Link>
-             </div>
+            {/* Removed the old Back to Home Link from the bottom */}
           </>
         )}
       </aside>
@@ -129,29 +138,36 @@ const AIDashboardProject: React.FC = () => {
           }`}
           aria-label={isTocOpen ? 'Collapse Table of Contents' : 'Expand Table of Contents'}
         >
-          {isTocOpen ? <ChevronLeft className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
+          {isTocOpen ? <ChevronLeft className="h-5 w-5 text-red-400" /> : <ChevronRight className="h-5 w-5 text-red-400" />}
         </button>
 
         {/* Page Content */}
         <main className="container mx-auto px-6 md:px-10 py-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+           {/* Use semantic text color */}
+          <h1 className="text-4xl md:text-5xl font-bold mb-12 text-center text-text-primary dark:text-text-primary-dark">
             AI's Rise and Societal Impact: Interactive Data Visualization
           </h1>
 
           {/* Sections */}
           <div className="space-y-16"> {/* Add spacing between sections */}
-            <section id="introduction" className="max-w-4xl mx-auto scroll-mt-24">
-              <h2 className="text-3xl font-semibold mb-4 border-b pb-2 dark:border-gray-700">Project Introduction</h2>
-              <p className="mb-4 text-lg leading-relaxed">
+             {/* Use semantic section background and text colors */}
+            <section id="introduction" className="max-w-4xl mx-auto scroll-mt-24 bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-semibold mb-4 border-b pb-2 dark:border-gray-700 text-text-primary dark:text-text-primary-dark">
+                Project Introduction
+              </h2>
+              <p className="mb-4 text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 This interactive Tableau dashboard explores the multifaceted impact of artificial intelligence on industries, employment patterns, and broader society. By visualizing comprehensive data on AI adoption trends, automation risks, and the evolving job market, this project presents a data-driven narrative of one of the most transformative technological shifts of our time.
               </p>
-              <p className="text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 As a data analyst with a keen interest in emerging technologies, I created this visualization to help organizations, professionals, and policymakers understand the complex implications of AI proliferation. The dashboard transforms raw data into actionable insights, enabling users to make informed decisions about workforce planning, skill development, and strategic investments in an AI-driven economy.
               </p>
             </section>
 
             <section id="dashboard" className="scroll-mt-24">
-              <h2 className="text-3xl font-semibold mb-6 text-center border-b pb-2 dark:border-gray-700 max-w-4xl mx-auto">Interactive Dashboard</h2>
+               {/* Use semantic text color */}
+              <h2 className="text-3xl font-semibold mb-6 text-center border-b pb-2 dark:border-gray-700 max-w-4xl mx-auto text-text-primary dark:text-text-primary-dark">
+                Interactive Dashboard
+              </h2>
               <div className="my-6 flex justify-center shadow-lg rounded-lg overflow-hidden bg-white dark:bg-gray-700 p-1 max-w-6xl mx-auto">
                 <div className='tableauPlaceholder' id='viz1743903136103' style={{ position: 'relative', width: '100%' }}> {/* Let height be dynamic */}
                   <noscript>
@@ -177,43 +193,49 @@ const AIDashboardProject: React.FC = () => {
               </div>
             </section>
 
-            <section id="business-value" className="max-w-4xl mx-auto scroll-mt-24">
-              <h2 className="text-3xl font-semibold mb-4 border-b pb-2 dark:border-gray-700">Business Value</h2>
-              <p className="mb-4 text-lg leading-relaxed">
+             {/* Use semantic section background and text colors */}
+            <section id="business-value" className="max-w-4xl mx-auto scroll-mt-24 bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-semibold mb-4 border-b pb-2 dark:border-gray-700 text-text-primary dark:text-text-primary-dark">
+                Business Value
+              </h2>
+              <p className="mb-4 text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 This dashboard delivers significant business value by providing decision-makers with critical intelligence on AI's impact across various domains:
               </p>
-              {/* Final Check: list-disc (outside) and pl-6 */}
-              <ul className="list-disc space-y-3 mb-4 text-lg pl-6">
+              {/* List of business values with theme classes */}
+              <ul className="list-disc space-y-3 mb-4 text-lg pl-6 text-text-secondary dark:text-text-secondary-dark">
                 <li><strong>Strategic Planning</strong>: Organizations can identify which sectors are experiencing the most rapid AI adoption, allowing for more informed competitive positioning and investment decisions.</li>
                 <li><strong>Workforce Development</strong>: HR departments can anticipate automation risks across different roles, enabling proactive reskilling initiatives and talent acquisition strategies.</li>
                 <li><strong>Market Intelligence</strong>: Investors and business leaders can track global investment patterns in AI technologies, identifying emerging opportunities and potential market disruptions.</li>
                 <li><strong>Risk Management</strong>: The visualization of regulatory trends helps organizations anticipate compliance requirements and adjust their AI implementation strategies accordingly.</li>
                 <li><strong>Public Perception Tracking</strong>: Marketing teams can better understand shifting consumer sentiment toward AI, informing product development and communication strategies.</li>
               </ul>
-              <p className="text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 By consolidating these insights into an interactive interface, the dashboard empowers stakeholders to extract actionable intelligence that could drive millions in strategic value through optimized workforce planning, targeted investments, and risk mitigation.
               </p>
             </section>
 
-            <section id="tools-methodology" className="max-w-4xl mx-auto scroll-mt-24">
-              <h2 className="text-3xl font-semibold mb-6 border-b pb-2 dark:border-gray-700">Tools & Methodology</h2> {/* Increased mb */}
+             {/* Use semantic section background and text colors */}
+            <section id="tools-methodology" className="max-w-4xl mx-auto scroll-mt-24 bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-semibold mb-6 border-b pb-2 dark:border-gray-700 text-text-primary dark:text-text-primary-dark">
+                Tools & Methodology
+              </h2>
               <div className="grid md:grid-cols-2 gap-x-8 gap-y-6"> {/* Adjusted gap */}
                 <div>
-                  <h3 className="text-2xl font-medium mb-3">Technical Approach</h3>
+                  <h3 className="text-2xl font-medium mb-3 text-text-primary dark:text-text-primary-dark">Technical Approach</h3>
                   {/* Final Check: list-disc (outside) and pl-6 */}
-                  <ul className="list-disc space-y-2 text-lg pl-6">
+                  <ul className="list-disc space-y-2 text-lg pl-6 text-text-secondary dark:text-text-secondary-dark">
                     <li><strong>Tableau Desktop</strong>: Leveraged for its robust visualization capabilities and interactive filtering options</li>
                     <li><strong>Interactive Elements</strong>: Created dynamic parameters, filters, and drill-down capabilities to enable exploratory analysis</li>
                     <li><strong>Design Principles</strong>: Applied strategic color theory, information hierarchy, and accessibility considerations throughout</li>
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-medium mb-3">Data Sources</h3>
-                   <p className="mb-3 text-lg leading-relaxed"> {/* Adjusted mb */}
+                  <h3 className="text-2xl font-medium mb-3 text-text-primary dark:text-text-primary-dark">Data Sources</h3>
+                   <p className="mb-3 text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark"> {/* Adjusted mb */}
                      This project draws on authoritative data from multiple sources, including:
                    </p>
                    {/* Final Check: list-disc (outside) and pl-6 */}
-                  <ul className="list-disc space-y-2 text-lg pl-6">
+                  <ul className="list-disc space-y-2 text-lg pl-6 text-text-secondary dark:text-text-secondary-dark">
                     <li>Data on AI job market trends from Kaggle datasets (Edwardan, 2024)</li>
                     <li>AI adoption metrics from Stanford's AI Index Report 2024</li>
                     <li>Tech industry workforce shifts documented by Ulrike Herold (2024)</li>
@@ -224,34 +246,36 @@ const AIDashboardProject: React.FC = () => {
                   </ul>
                 </div>
               </div>
-              <p className="mt-6 text-lg leading-relaxed">
+              <p className="mt-6 text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 The data underwent rigorous cleaning, normalization, and validation before visualization to ensure accuracy and relevance.
               </p>
             </section>
 
-            <section id="development-process" className="max-w-4xl mx-auto scroll-mt-24">
-              <h2 className="text-3xl font-semibold mb-4 border-b pb-2 dark:border-gray-700">Development Process</h2>
-              <h3 className="text-2xl font-medium mb-3">Planning Phase</h3>
-              <p className="mb-4 text-lg leading-relaxed">
+             {/* Use semantic section background and text colors */}
+            <section id="development-process" className="max-w-4xl mx-auto scroll-mt-24 bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-semibold mb-4 border-b pb-2 dark:border-gray-700 text-text-primary dark:text-text-primary-dark">Development Process</h2>
+              <h3 className="text-2xl font-medium mb-3 text-text-primary dark:text-text-primary-dark">Planning Phase</h3>
+              <p className="mb-4 text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 The project began with extensive research to identify the most relevant aspects of AI's impact that would provide value to users. I created initial wireframes to map out the information architecture and user flow through the dashboard.
               </p>
-              <h3 className="text-2xl font-medium mb-3">Data Collection Challenges</h3>
-              <p className="mb-4 text-lg leading-relaxed">
+              <h3 className="text-2xl font-medium mb-3 text-text-primary dark:text-text-primary-dark">Data Collection Challenges</h3>
+              <p className="mb-4 text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 Collecting consistent data across regions proved challenging, particularly for AI adoption metrics. I addressed this by normalizing datasets and creating composite indices where appropriate, ensuring meaningful cross-regional comparisons.
               </p>
-              <h3 className="text-2xl font-medium mb-3">Iterative Design</h3>
-              <p className="text-lg leading-relaxed">
+              <h3 className="text-2xl font-medium mb-3 text-text-primary dark:text-text-primary-dark">Iterative Design</h3>
+              <p className="text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 The dashboard underwent multiple iterations based on user feedback. Early versions prioritized comprehensive data display, while later iterations focused on storytelling and user experience. I continuously refined filters and interactive elements to balance analytical depth with usability.
               </p>
             </section>
 
-            <section id="features-functionality" className="max-w-4xl mx-auto scroll-mt-24">
-              <h2 className="text-3xl font-semibold mb-6 border-b pb-2 dark:border-gray-700">Features & Functionality</h2> {/* Increased mb */}
+             {/* Use semantic section background and text colors */}
+            <section id="features-functionality" className="max-w-4xl mx-auto scroll-mt-24 bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-semibold mb-6 border-b pb-2 dark:border-gray-700 text-text-primary dark:text-text-primary-dark">Features & Functionality</h2> {/* Increased mb */}
               <div className="grid md:grid-cols-2 gap-x-8 gap-y-6"> {/* Adjusted gap */}
                 <div>
-                  <h3 className="text-2xl font-medium mb-3">Interactive Capabilities</h3>
+                  <h3 className="text-2xl font-medium mb-3 text-text-primary dark:text-text-primary-dark">Interactive Capabilities</h3>
                    {/* Corrected: Removed list-inside, ensured list-disc and pl-6 */}
-                  <ul className="list-disc space-y-2 text-lg pl-6">
+                  <ul className="list-disc space-y-2 text-lg pl-6 text-text-secondary dark:text-text-secondary-dark">
                     <li><strong>Global Filter Panel</strong>: Allows filtering by region, industry, time period, and technology type</li>
                     <li><strong>Drill-Down Architecture</strong>: Users can navigate from high-level trends to granular details about specific roles, regions, or technologies</li>
                     <li><strong>Custom Parameters</strong>: Dynamic adjustments for time horizons, risk thresholds, and investment categories</li>
@@ -260,9 +284,9 @@ const AIDashboardProject: React.FC = () => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-medium mb-3">Visual Components</h3>
+                  <h3 className="text-2xl font-medium mb-3 text-text-primary dark:text-text-primary-dark">Visual Components</h3>
                    {/* Corrected: Removed list-inside, ensured list-disc and pl-6 */}
-                  <ul className="list-disc space-y-2 text-lg pl-6">
+                  <ul className="list-disc space-y-2 text-lg pl-6 text-text-secondary dark:text-text-secondary-dark">
                     <li>Heat maps displaying automation risk across job categories</li>
                     <li>Time-series visualizations of AI investment trends</li>
                     <li>Geographic distribution of AI job opportunities</li>
@@ -271,51 +295,53 @@ const AIDashboardProject: React.FC = () => {
                   </ul>
                 </div>
               </div>
-              <p className="mt-6 text-lg leading-relaxed">
+              <p className="mt-6 text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 Each component was designed to work both independently and as part of an integrated analytical narrative.
               </p>
             </section>
 
-            <section id="key-insights" className="max-w-4xl mx-auto scroll-mt-24">
-              <h2 className="text-3xl font-semibold mb-4 border-b pb-2 dark:border-gray-700">Key Insights</h2>
+             {/* Use semantic section background and text colors */}
+            <section id="key-insights" className="max-w-4xl mx-auto scroll-mt-24 bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-semibold mb-4 border-b pb-2 dark:border-gray-700 text-text-primary dark:text-text-primary-dark">Key Insights</h2>
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-2xl font-medium mb-2">Global AI Investment Landscape</h3>
-                  <p className="text-lg leading-relaxed">
+                  <h3 className="text-2xl font-medium mb-2 text-text-primary dark:text-text-primary-dark">Global AI Investment Landscape</h3>
+                  <p className="text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                     The United States maintains a commanding lead with $67.2 billion in private AI investments in 2023, representing nearly triple the investment of its closest competitor. This concentration of capital has significant implications for global AI innovation distribution and potential technology transfer barriers.
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-medium mb-2">Automation Risk Distribution</h3>
-                  <p className="text-lg leading-relaxed">
+                  <h3 className="text-2xl font-medium mb-2 text-text-primary dark:text-text-primary-dark">Automation Risk Distribution</h3>
+                  <p className="text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                     Contrary to common assumptions, high-salary positions aren't immune to automation risk. The dashboard reveals that roles like Marketing Specialists (average salary: $106K) face significant disruption potential due to advancements in natural language processing and predictive analytics. This challenges conventional wisdom about which career paths offer long-term stability.
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-medium mb-2">Industry Adoption Patterns</h3>
-                  <p className="text-lg leading-relaxed">
+                  <h3 className="text-2xl font-medium mb-2 text-text-primary dark:text-text-primary-dark">Industry Adoption Patterns</h3>
+                  <p className="text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                     While the technology sector leads with 36% AI adoption, the financial services industry follows closely at 31%, demonstrating faster-than-expected integration. Healthcare shows the steepest adoption curve, suggesting potential market opportunities for specialized AI solutions in clinical and operational contexts.
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-medium mb-2">Job Market Transformation</h3>
-                  <p className="text-lg leading-relaxed">
+                  <h3 className="text-2xl font-medium mb-2 text-text-primary dark:text-text-primary-dark">Job Market Transformation</h3>
+                  <p className="text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                     The dashboard visualizes how AI job postings have evolved beyond traditional computer science roles. By 2022, machine learning skills appeared in 5.7% of all job postings across diverse fields including marketing, finance, and healthcare, indicating the mainstreaming of AI competencies.
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-medium mb-2">Geographic Distribution of Opportunity</h3>
-                  <p className="text-lg leading-relaxed">
+                  <h3 className="text-2xl font-medium mb-2 text-text-primary dark:text-text-primary-dark">Geographic Distribution of Opportunity</h3>
+                  <p className="text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                     The United States dominates the global AI job market with 55.1% of all job postings, followed by India at 14.96%. However, the visualization reveals emerging hubs in unexpected regions, with Southeast Asia showing the fastest growth rate in new AI positions (37% year-over-year).
                   </p>
                 </div>
               </div>
             </section>
 
-            <section id="skills-demonstrated" className="max-w-4xl mx-auto scroll-mt-24">
-              <h2 className="text-3xl font-semibold mb-6 border-b pb-2 dark:border-gray-700">Skills Demonstrated</h2> {/* Increased mb */}
+             {/* Use semantic section background and text colors */}
+            <section id="skills-demonstrated" className="max-w-4xl mx-auto scroll-mt-24 bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-semibold mb-6 border-b pb-2 dark:border-gray-700 text-text-primary dark:text-text-primary-dark">Skills Demonstrated</h2> {/* Increased mb */}
               {/* Final Check: list-disc (outside) and pl-6 */}
-              <ul className="list-disc space-y-3 text-lg pl-6">
+              <ul className="list-disc space-y-3 text-lg pl-6 text-text-secondary dark:text-text-secondary-dark">
                 <li><strong>Advanced Tableau Techniques</strong>: Custom calculations, parameters, sets, and level-of-detail expressions</li>
                 <li><strong>Data Transformation</strong>: Handling complex, multi-source datasets with varying granularity and structure</li>
                 <li><strong>Visual Design</strong>: Strategic use of color, shape, and space to maximize information density without compromising clarity</li>
@@ -324,27 +350,29 @@ const AIDashboardProject: React.FC = () => {
               </ul>
             </section>
 
-            <section id="conclusion" className="max-w-4xl mx-auto pb-12 scroll-mt-24">
-              <h2 className="text-3xl font-semibold mb-4 border-b pb-2 dark:border-gray-700">Conclusion and Next Steps</h2>
-              <p className="mb-4 text-lg leading-relaxed">
+             {/* Use semantic section background and text colors */}
+            <section id="conclusion" className="max-w-4xl mx-auto pb-12 scroll-mt-24 bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-semibold mb-4 border-b pb-2 dark:border-gray-700 text-text-primary dark:text-text-primary-dark">Conclusion and Next Steps</h2>
+              <p className="mb-4 text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 This interactive dashboard provides a comprehensive view of AI's impact across industries and geographies, serving as both an analytical tool and a strategic resource. The insights generated can help organizations navigate the rapidly evolving AI landscape with data-driven confidence.
               </p>
-              <p className="mb-4 text-lg leading-relaxed">
+              <p className="mb-4 text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 I invite you to explore this dashboard to uncover insights relevant to your organization or career path. The interactive elements allow you to filter and focus on the aspects most relevant to your context.
               </p>
-              <p className="mb-4 text-lg leading-relaxed">
+              <p className="mb-4 text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 I welcome discussions about the methodology, findings, or potential applications of this analysis. If you're interested in exploring how similar visualizations could provide value for your specific needs, please reach out through the contact information provided on my portfolio.
               </p>
-              <p className="text-lg leading-relaxed">
+              <p className="text-lg leading-relaxed text-text-secondary dark:text-text-secondary-dark">
                 This project demonstrates not only technical proficiency in data visualization but also my ability to transform complex datasets into strategic insights that drive business value.
               </p>
             </section>
 
             {/* New References Section */}
-            <section id="references" className="max-w-4xl mx-auto pb-12 scroll-mt-24">
-              <h2 className="text-3xl font-semibold mb-6 border-b pb-2 dark:border-gray-700">References</h2> {/* Increased mb */}
+             {/* Use semantic section background and text colors */}
+            <section id="references" className="max-w-4xl mx-auto pb-12 scroll-mt-24 bg-section-bg dark:bg-section-bg-dark rounded-lg shadow-lg p-8">
+              <h2 className="text-3xl font-semibold mb-6 border-b pb-2 dark:border-gray-700 text-text-primary dark:text-text-primary-dark">References</h2> {/* Increased mb */}
               {/* Final Check: list-disc (outside) and pl-6 */}
-              <ul className="list-disc space-y-4 text-sm md:text-base text-gray-700 dark:text-gray-300 pl-6">
+              <ul className="list-disc space-y-4 text-sm md:text-base text-text-secondary dark:text-text-secondary-dark pl-6">
                 <li>
                   Edwardan, K. (2024). <i>AI-Powered Job Market Insights</i> [Dataset]. Kaggle. <a href="https://www.kaggle.com/datasets/edwardan/ai-powered-job-market-insights" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline break-words">https://www.kaggle.com/datasets/edwardan/ai-powered-job-market-insights</a>
                 </li>

@@ -14,11 +14,13 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-4 left-0 right-0 z-[90] flex justify-center">
-      <nav className="bg-black/90 backdrop-blur-sm rounded-lg shadow-lg w-[calc(100%-2rem)] max-w-7xl mx-4">
+      {/* Use a dark gray background instead of pure black, keep backdrop blur */}
+      <nav className="bg-gray-900/90 dark:bg-gray-950/90 backdrop-blur-sm rounded-lg shadow-lg w-[calc(100%-2rem)] max-w-7xl mx-4">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex-1">
-              <a href="#hero" className="text-white font-bold text-xl hover:text-gray-300 transition-colors">
+              {/* Use specific navbar text color */}
+              <a href="#hero" className="text-navbar-text font-bold text-xl hover:opacity-80 transition-opacity">
                 Priyanshu Kumar
               </a>
             </div>
@@ -28,7 +30,8 @@ const Navbar = () => {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="text-white hover:text-black hover:bg-white px-2.5 py-1.5 rounded-md transition-all duration-200 whitespace-nowrap"
+                    // Use specific navbar text color and updated hover effect
+                    className="text-navbar-text hover:text-text-primary hover:bg-antique-white px-2.5 py-1.5 rounded-md transition-all duration-200 whitespace-nowrap"
                   >
                     {link.name}
                   </a>
